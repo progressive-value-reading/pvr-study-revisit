@@ -21,7 +21,16 @@
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
         "autoDownloadStudy": false,
-        "withSidebar": true
+        "withSidebar": true,
+        "windowEventDebounceTime": 100,
+        "studyEndMsg": "Thank you for participating in the study!"
+    },
+    "studyRules": {
+        "display": {
+            "minWidth": 1024,
+            "minHeight": 768,
+            "blockedMessage": "This study requires a screen at least 1024 \u00d7 768 pixels. Please open the study on a laptop or desktop, and make sure your browser window is maximized."
+        }
     },
     "baseComponents": {
         "bar-chart": {
@@ -29,6 +38,14 @@
             "response": [
                 {
                     "id": "barChart",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
+                },
+                {
+                    "id": "scrollMetrics",
                     "prompt": "",
                     "required": true,
                     "hidden": true,
@@ -49,6 +66,14 @@
                     "hidden": true,
                     "location": "belowStimulus",
                     "type": "reactive"
+                },
+                {
+                    "id": "scrollMetrics",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
                 }
             ],
             "path": "pvr-study-1/assets/bar-chart-tutorial.html",
@@ -59,8 +84,19 @@
         "consent": {
             "type": "markdown",
             "path": "pvr-study-1/assets/consent.md",
-            "nextButtonText": "I consent to participate",
-            "response": []
+            "nextButtonText": "Next",
+            "response": [
+                {
+                    "id": "agree-to-participate",
+                    "prompt": "Do you agree to participate in the study?",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                }
+            ]
         },
         "instruction": {
             "type": "markdown",
@@ -81,46 +117,37 @@
             "response": []
         },
         "pre-screen": {
-            "type": "questionnaire",
+            "type": "image",
+            "path": "pvr-study-1/assets/grey-scale.png",
             "description": "Pre-screening form on one page",
-            "instruction": "Please answer the following pre-screen questions before continuing.",
-            "nextButtonText": "Continue to study instructions",
+            "nextButtonText": "Next",
+            "style": {
+                "width": "500px",
+                "border": "1px solid #999"
+            },
             "response": [
                 {
-                    "id": "ps-age",
-                    "prompt": "What is your age?",
-                    "secondaryText": "Please enter your age in years.",
-                    "type": "numerical",
-                    "min": 18,
-                    "max": 100,
+                    "id": "ps-grey-scale-response",
+                    "prompt": "Please enter the number shown in the image bleow. This is to verify that your screen can properly display the charts we will use.",
+                    "type": "shortText",
+                    "placeholder": "e.g. 123",
                     "location": "aboveStimulus"
                 },
                 {
                     "id": "ps-vision",
                     "prompt": "Do you have normal or corrected-to-normal vision?",
                     "type": "radio",
-                    "location": "aboveStimulus",
+                    "location": "belowStimulus",
                     "options": [
                         "Yes",
                         "No"
                     ]
                 },
                 {
-                    "id": "ps-color-vision",
-                    "prompt": "Do you have color vision deficiency?",
-                    "type": "radio",
-                    "location": "aboveStimulus",
-                    "options": [
-                        "No",
-                        "Yes",
-                        "Unsure"
-                    ]
-                },
-                {
                     "id": "ps-dataviz-experience",
                     "prompt": "How would you describe your data visualization experience?",
-                    "type": "dropdown",
-                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "location": "belowStimulus",
                     "options": [
                         "None",
                         "Beginner",
@@ -132,11 +159,54 @@
                     "id": "ps-device-check",
                     "prompt": "Are you currently using a laptop or desktop computer?",
                     "type": "radio",
-                    "location": "aboveStimulus",
+                    "location": "belowStimulus",
                     "options": [
                         "Yes",
                         "No"
                     ]
+                }
+            ]
+        },
+        "non-qualified": {
+            "type": "markdown",
+            "path": "pvr-study-1/assets/non-qualified.md",
+            "nextButtonText": "Finish",
+            "response": []
+        },
+        "study-complete": {
+            "type": "markdown",
+            "path": "pvr-study-1/assets/study-complete.md",
+            "nextButtonText": "Finish",
+            "response": [
+                {
+                    "id": "finish-confirm",
+                    "prompt": "Confirm to finalize and submit your data.",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Finish"
+                    ]
+                }
+            ]
+        },
+        "pre-screen-scroll": {
+            "type": "website",
+            "path": "pvr-study-1/assets/scroll-test.html",
+            "description": "Scroll capability screening",
+            "instruction": "Please place your mouse cursor inside the frame below, then scroll upward until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
+            "instructionLocation": "aboveStimulus",
+            "nextButtonText": "Next",
+            "style": {
+                "width": "500px",
+                "height": "500px"
+            },
+            "response": [
+                {
+                    "id": "ps-scroll-response",
+                    "prompt": "Number you saw at the top of the frame:",
+                    "type": "shortText",
+                    "placeholder": "e.g. 123",
+                    "location": "belowStimulus"
                 }
             ]
         },
