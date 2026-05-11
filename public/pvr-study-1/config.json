@@ -958,6 +958,42 @@
                 "scaleFactor": 5,
                 "ratio": 100
             }
+        },
+        "post-study-feedback": {
+            "type": "questionnaire",
+            "description": "Post-study feedback form",
+            "instruction": "Before finishing the study, please answer the following final questions.",
+            "nextButtonText": "Submit feedback and finish",
+            "response": [
+                {
+                    "id": "post-scroll-method",
+                    "prompt": "Please select the scroll method you used in this study:",
+                    "type": "checkbox",
+                    "location": "aboveStimulus",
+                    "options": [
+                        "Mousewheel",
+                        "Trackpad",
+                        "Touch scrolling"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "post-estimation-strategy",
+                    "prompt": "Please describe the strategies you used to estimate, if any.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "Share any strategy you used, or leave blank."
+                },
+                {
+                    "id": "post-task-feedback",
+                    "prompt": "If you have any feedback on your experience with the task, we would appreciate your input, for example, anything unclear or difficult about the instructions or task.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "Share any feedback about the task or instructions, or leave blank."
+                }
+            ]
         }
     },
     "sequence": {
@@ -1068,7 +1104,8 @@
                     "main-s5-r80",
                     "main-s5-r100"
                 ]
-            }
+            },
+            "post-study-feedback"
         ]
     }
 }
