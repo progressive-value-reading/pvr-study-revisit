@@ -144,18 +144,6 @@
                     ]
                 },
                 {
-                    "id": "ps-dataviz-experience",
-                    "prompt": "How would you describe your data visualization experience?",
-                    "type": "radio",
-                    "location": "belowStimulus",
-                    "options": [
-                        "None",
-                        "Beginner",
-                        "Intermediate",
-                        "Advanced"
-                    ]
-                },
-                {
                     "id": "ps-device-check",
                     "prompt": "Are you currently using a laptop or desktop computer?",
                     "type": "radio",
@@ -1032,7 +1020,7 @@
         "post-study-feedback": {
             "type": "questionnaire",
             "description": "Post-study feedback form",
-            "instruction": "Before finishing the study, please answer the following final questions.",
+            "instruction": "",
             "nextButtonText": "Submit feedback and finish",
             "response": [
                 {
@@ -1056,6 +1044,14 @@
                     "placeholder": "Share any strategy you used, or leave blank."
                 },
                 {
+                    "id": "post-external-tool-use",
+                    "prompt": "Did you use any external tool to estimate during the study? If yes, please describe what you used. Your answer won't affect your compensation.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "For example, mention whether you used a ruler, calculator, notes, or anything else, or leave blank."
+                },
+                {
                     "id": "post-task-feedback",
                     "prompt": "If you have any feedback on your experience with the task, we would appreciate your input, for example, anything unclear or difficult about the instructions or task.",
                     "type": "longText",
@@ -1069,8 +1065,65 @@
     "sequence": {
         "order": "fixed",
         "components": [
-            "consent",
-            "pre-screen",
+            {
+                "id": "consent-flow",
+                "order": "fixed",
+                "components": [
+                    "consent"
+                ],
+                "skip": [
+                    {
+                        "name": "consent",
+                        "check": "response",
+                        "responseId": "agree-to-participate",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    }
+                ]
+            },
+            {
+                "id": "screening-flow",
+                "order": "fixed",
+                "components": [
+                    "pre-screen",
+                    "pre-screen-scroll"
+                ],
+                "skip": [
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-grey-scale-response",
+                        "value": "247",
+                        "comparison": "notEqual",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-vision",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-device-check",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen-scroll",
+                        "check": "response",
+                        "responseId": "ps-scroll-response",
+                        "value": "582",
+                        "comparison": "notEqual",
+                        "to": "non-qualified"
+                    }
+                ]
+            },
             "instruction",
             {
                 "order": "fixed",
@@ -1175,7 +1228,25 @@
                     "main-s5-r100"
                 ]
             },
-            "post-study-feedback"
+            "post-study-feedback",
+            {
+                "id": "completion-flow",
+                "order": "fixed",
+                "components": [
+                    "study-complete"
+                ],
+                "skip": [
+                    {
+                        "name": "study-complete",
+                        "check": "response",
+                        "responseId": "finish-confirm",
+                        "value": "Finish",
+                        "comparison": "equal",
+                        "to": "end"
+                    }
+                ]
+            },
+            "non-qualified"
         ]
     }
 }

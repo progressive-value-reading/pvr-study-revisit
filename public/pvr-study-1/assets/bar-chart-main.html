@@ -101,6 +101,7 @@
       #submitAnswer {
         padding: 6px 12px;
       }
+
     </style>
   </head>
   <body>
@@ -148,6 +149,8 @@
       const fitWarning = document.getElementById('fitWarning');
       const mustReachTop = clampedScaleFactor > 1;
       const backgroundScaleFactor = Math.max(1, Math.min(5, Math.round(clampedScaleFactor)));
+      let hasReachedTop = !mustReachTop;
+      let isSubmitted = false;
 
       chartArea.style.width = `${viewportWidth}px`;
       chartArea.style.height = `${chartHeight}px`;
@@ -158,6 +161,7 @@
       chartArea.style.backgroundSize = `${viewportWidth}px ${chartHeight}px`;
 
       const trialStartTime = Date.now();
+      const scrollBoutIdleMs = 250;
       const scrollMetrics = {
         firstScrollTime: null,
         lastScrollTime: null,
@@ -165,9 +169,12 @@
         totalScrollDistance: 0,
         numDirectionChanges: 0,
         scrollEventCount: 0,
+        scrollEvents: [],
+        scrollBouts: [],
       };
       let lastScrollTop = null;
-      let lastDirection = 0;
+      let lastDirection = null;
+      let activeScrollBout = null;
 
       const isAtTop = () => viewport.scrollTop <= 1;
       const getVisibleViewport = () => {
@@ -207,24 +214,75 @@
           && bounds.bottom <= visibleViewport.height + tolerance;
       };
 
-      const trackScroll = () => {
-        if (lastScrollTop === null) {
-          lastScrollTop = viewport.scrollTop;
+      const finalizeActiveScrollBout = () => {
+        if (!activeScrollBout) {
           return;
         }
-        const delta = viewport.scrollTop - lastScrollTop;
+
+        scrollMetrics.scrollBouts.push({
+          startTime: activeScrollBout.startTime,
+          endTime: activeScrollBout.lastEventTime,
+          duration: activeScrollBout.lastEventTime - activeScrollBout.startTime,
+          direction: activeScrollBout.direction,
+          eventCount: activeScrollBout.eventCount,
+          totalDistance: activeScrollBout.totalDistance,
+          startScrollTop: activeScrollBout.startScrollTop,
+          endScrollTop: activeScrollBout.endScrollTop,
+        });
+        activeScrollBout = null;
+      };
+
+      const trackScroll = () => {
+        const currentScrollTop = viewport.scrollTop;
+        if (lastScrollTop === null) {
+          lastScrollTop = currentScrollTop;
+          return;
+        }
+        const delta = currentScrollTop - lastScrollTop;
         if (delta === 0) return;
 
         const elapsed = Date.now() - trialStartTime;
+        const direction = delta > 0 ? 'down' : 'up';
+        const distance = Math.abs(delta);
         scrollMetrics.scrollEventCount += 1;
-        scrollMetrics.totalScrollDistance += Math.abs(delta);
+        scrollMetrics.totalScrollDistance += distance;
         if (scrollMetrics.firstScrollTime === null) {
           scrollMetrics.firstScrollTime = elapsed;
         }
         scrollMetrics.lastScrollTime = elapsed;
 
-        const direction = delta > 0 ? 1 : -1;
-        if (lastDirection !== 0 && lastDirection !== direction) {
+        scrollMetrics.scrollEvents.push({
+          time: elapsed,
+          direction,
+          delta,
+          distance,
+          previousScrollTop: lastScrollTop,
+          scrollTop: currentScrollTop,
+        });
+
+        const shouldStartNewBout = !activeScrollBout
+          || activeScrollBout.direction !== direction
+          || elapsed - activeScrollBout.lastEventTime > scrollBoutIdleMs;
+
+        if (shouldStartNewBout) {
+          finalizeActiveScrollBout();
+          activeScrollBout = {
+            startTime: elapsed,
+            lastEventTime: elapsed,
+            direction,
+            eventCount: 1,
+            totalDistance: distance,
+            startScrollTop: lastScrollTop,
+            endScrollTop: currentScrollTop,
+          };
+        } else {
+          activeScrollBout.lastEventTime = elapsed;
+          activeScrollBout.eventCount += 1;
+          activeScrollBout.totalDistance += distance;
+          activeScrollBout.endScrollTop = currentScrollTop;
+        }
+
+        if (lastDirection !== null && lastDirection !== direction) {
           scrollMetrics.numDirectionChanges += 1;
         }
         lastDirection = direction;
@@ -233,24 +291,30 @@
           scrollMetrics.reachedTopAt = elapsed;
         }
 
-        lastScrollTop = viewport.scrollTop;
+        lastScrollTop = currentScrollTop;
       };
 
       const updateScrollState = () => {
         const visibleViewport = getVisibleViewport();
         const isTaskVisible = isTaskFullyVisible();
-        const canAnswer = isTaskVisible && (!mustReachTop || isAtTop());
+        if (!hasReachedTop && isAtTop()) {
+          hasReachedTop = true;
+        }
+
+        const canEdit = isTaskVisible && hasReachedTop;
         const rawInput = integerAnswer.value.trim();
         const parsed = Number(rawInput);
         const hasIntegerInput = rawInput !== '' && Number.isInteger(parsed);
-        scrollHint.style.display = isTaskVisible && mustReachTop && !isAtTop() ? 'block' : 'none';
+        scrollHint.style.display = isTaskVisible && mustReachTop && !hasReachedTop ? 'block' : 'none';
         fitWarning.style.display = isTaskVisible ? 'none' : 'block';
         fitWarning.textContent = `Please enlarge your browser window or reset browser zoom until the full chart and answer area are visible.`;
-        integerAnswer.disabled = !isTaskVisible;
-        submitAnswer.disabled = !hasIntegerInput || !canAnswer;
+        integerAnswer.disabled = !canEdit || isSubmitted;
+        submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit answer';
+        submitAnswer.disabled = isSubmitted || !hasIntegerInput || !canEdit;
       };
 
       const postAnswer = (answerValue) => {
+        finalizeActiveScrollBout();
         Revisit.postAnswers({
           [taskID]: answerValue,
           scrollMetrics,
@@ -263,10 +327,12 @@
         if (rawInput === '' || !Number.isInteger(parsed)) {
           return;
         }
-        if (mustReachTop && !isAtTop()) {
+        if (mustReachTop && !hasReachedTop) {
           return;
         }
+        isSubmitted = true;
         postAnswer(parsed);
+        updateScrollState();
       };
 
       integerAnswer.onkeydown = (event) => {
@@ -275,16 +341,20 @@
           submitAnswer.click();
         }
       };
+      integerAnswer.addEventListener('wheel', () => {
+        integerAnswer.blur();
+      });
 
-      viewport.onscroll = () => {
-        trackScroll();
-        updateScrollState();
-      };
       integerAnswer.oninput = updateScrollState;
       window.addEventListener('resize', updateScrollState);
       window.visualViewport?.addEventListener('resize', updateScrollState);
       window.visualViewport?.addEventListener('scroll', updateScrollState);
       viewport.scrollTop = Math.max(0, chartHeight - viewportHeight);
+      lastScrollTop = viewport.scrollTop;
+      viewport.onscroll = () => {
+        trackScroll();
+        updateScrollState();
+      };
       updateScrollState();
     });
   </script>
