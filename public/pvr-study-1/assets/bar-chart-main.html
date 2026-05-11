@@ -147,7 +147,48 @@
         height: chartHeight,
       })}")`;
 
+      const trialStartTime = Date.now();
+      const scrollMetrics = {
+        firstScrollTime: null,
+        lastScrollTime: null,
+        reachedTopAt: null,
+        totalScrollDistance: 0,
+        numDirectionChanges: 0,
+        scrollEventCount: 0,
+      };
+      let lastScrollTop = null;
+      let lastDirection = 0;
+
       const isAtTop = () => viewport.scrollTop <= 1;
+
+      const trackScroll = () => {
+        if (lastScrollTop === null) {
+          lastScrollTop = viewport.scrollTop;
+          return;
+        }
+        const delta = viewport.scrollTop - lastScrollTop;
+        if (delta === 0) return;
+
+        const elapsed = Date.now() - trialStartTime;
+        scrollMetrics.scrollEventCount += 1;
+        scrollMetrics.totalScrollDistance += Math.abs(delta);
+        if (scrollMetrics.firstScrollTime === null) {
+          scrollMetrics.firstScrollTime = elapsed;
+        }
+        scrollMetrics.lastScrollTime = elapsed;
+
+        const direction = delta > 0 ? 1 : -1;
+        if (lastDirection !== 0 && lastDirection !== direction) {
+          scrollMetrics.numDirectionChanges += 1;
+        }
+        lastDirection = direction;
+
+        if (scrollMetrics.reachedTopAt === null && isAtTop()) {
+          scrollMetrics.reachedTopAt = elapsed;
+        }
+
+        lastScrollTop = viewport.scrollTop;
+      };
 
       const updateScrollState = () => {
         const canAnswer = !mustReachTop || isAtTop();
@@ -161,6 +202,7 @@
       const postAnswer = (answerValue) => {
         Revisit.postAnswers({
           [taskID]: answerValue,
+          scrollMetrics,
         });
       };
 
@@ -183,7 +225,10 @@
         }
       };
 
-      viewport.onscroll = updateScrollState;
+      viewport.onscroll = () => {
+        trackScroll();
+        updateScrollState();
+      };
       integerAnswer.oninput = updateScrollState;
       viewport.scrollTop = Math.max(0, chartHeight - viewportHeight);
       updateScrollState();

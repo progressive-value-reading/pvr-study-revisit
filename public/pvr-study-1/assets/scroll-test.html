@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll test</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      position: relative;
+      height: 1000px;
+    }
+    .number {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 120px;
+      font-weight: 800;
+      color: #222;
+      letter-spacing: 12px;
+      user-select: none;
+    }
+    .hint-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+      user-select: none;
+    }
+    .arrow {
+      font-size: 22px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="number">582</div>
+  <div class="hint-bottom">
+    <span class="arrow">&uarr;</span>
+    scroll up to find the number
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+  </script>
+</body>
+</html>

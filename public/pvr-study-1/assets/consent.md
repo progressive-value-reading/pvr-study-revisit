@@ -66,4 +66,6 @@ I acknowledge that I have been informed of the purpose and details of the projec
 
 Finally, I acknowledge that I have the possibility of asking additional questions about the project or my rights at any time during the project by contacting the contact persons.
 
+<br>
+
 
