@@ -273,6 +273,15 @@
                 "ratio": 2
             }
         },
+        "main-s1-r3": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 3
+            }
+        },
         "main-s1-r4": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -280,6 +289,33 @@
             "parameters": {
                 "scaleFactor": 1,
                 "ratio": 4
+            }
+        },
+        "main-s1-r5": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 5
+            }
+        },
+        "main-s1-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 7
+            }
+        },
+        "main-s1-r9": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 9
             }
         },
         "main-s1-r11": {
@@ -291,6 +327,15 @@
                 "ratio": 11
             }
         },
+        "main-s1-r13": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 13
+            }
+        },
         "main-s1-r17": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -300,6 +345,33 @@
                 "ratio": 17
             }
         },
+        "main-s1-r21": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 21
+            }
+        },
+        "main-s1-r26": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 26
+            }
+        },
+        "main-s1-r33": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 33
+            }
+        },
         "main-s1-r41": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -307,6 +379,33 @@
             "parameters": {
                 "scaleFactor": 1,
                 "ratio": 41
+            }
+        },
+        "main-s1-r51": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 51
+            }
+        },
+        "main-s1-r64": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 64
+            }
+        },
+        "main-s1-r80": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 80
             }
         },
         "main-s1-r100": {
@@ -327,6 +426,15 @@
                 "ratio": 2
             }
         },
+        "main-s2-r3": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 3
+            }
+        },
         "main-s2-r4": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -334,6 +442,33 @@
             "parameters": {
                 "scaleFactor": 2,
                 "ratio": 4
+            }
+        },
+        "main-s2-r5": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 5
+            }
+        },
+        "main-s2-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 7
+            }
+        },
+        "main-s2-r9": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 9
             }
         },
         "main-s2-r11": {
@@ -345,6 +480,15 @@
                 "ratio": 11
             }
         },
+        "main-s2-r13": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 13
+            }
+        },
         "main-s2-r17": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -354,6 +498,33 @@
                 "ratio": 17
             }
         },
+        "main-s2-r21": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 21
+            }
+        },
+        "main-s2-r26": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 26
+            }
+        },
+        "main-s2-r33": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 33
+            }
+        },
         "main-s2-r41": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -361,6 +532,33 @@
             "parameters": {
                 "scaleFactor": 2,
                 "ratio": 41
+            }
+        },
+        "main-s2-r51": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 51
+            }
+        },
+        "main-s2-r64": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 64
+            }
+        },
+        "main-s2-r80": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 80
             }
         },
         "main-s2-r100": {
@@ -381,6 +579,15 @@
                 "ratio": 2
             }
         },
+        "main-s3-r3": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 3
+            }
+        },
         "main-s3-r4": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -388,6 +595,33 @@
             "parameters": {
                 "scaleFactor": 3,
                 "ratio": 4
+            }
+        },
+        "main-s3-r5": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 5
+            }
+        },
+        "main-s3-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 7
+            }
+        },
+        "main-s3-r9": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 9
             }
         },
         "main-s3-r11": {
@@ -399,6 +633,15 @@
                 "ratio": 11
             }
         },
+        "main-s3-r13": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 13
+            }
+        },
         "main-s3-r17": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -408,6 +651,33 @@
                 "ratio": 17
             }
         },
+        "main-s3-r21": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 21
+            }
+        },
+        "main-s3-r26": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 26
+            }
+        },
+        "main-s3-r33": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 33
+            }
+        },
         "main-s3-r41": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -415,6 +685,33 @@
             "parameters": {
                 "scaleFactor": 3,
                 "ratio": 41
+            }
+        },
+        "main-s3-r51": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 51
+            }
+        },
+        "main-s3-r64": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 64
+            }
+        },
+        "main-s3-r80": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 3,
+                "ratio": 80
             }
         },
         "main-s3-r100": {
@@ -435,6 +732,15 @@
                 "ratio": 2
             }
         },
+        "main-s4-r3": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 3
+            }
+        },
         "main-s4-r4": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -442,6 +748,33 @@
             "parameters": {
                 "scaleFactor": 4,
                 "ratio": 4
+            }
+        },
+        "main-s4-r5": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 5
+            }
+        },
+        "main-s4-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 7
+            }
+        },
+        "main-s4-r9": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 9
             }
         },
         "main-s4-r11": {
@@ -453,6 +786,15 @@
                 "ratio": 11
             }
         },
+        "main-s4-r13": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 13
+            }
+        },
         "main-s4-r17": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -462,6 +804,33 @@
                 "ratio": 17
             }
         },
+        "main-s4-r21": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 21
+            }
+        },
+        "main-s4-r26": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 26
+            }
+        },
+        "main-s4-r33": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 33
+            }
+        },
         "main-s4-r41": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -469,6 +838,33 @@
             "parameters": {
                 "scaleFactor": 4,
                 "ratio": 41
+            }
+        },
+        "main-s4-r51": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 51
+            }
+        },
+        "main-s4-r64": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 64
+            }
+        },
+        "main-s4-r80": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 4,
+                "ratio": 80
             }
         },
         "main-s4-r100": {
@@ -489,6 +885,15 @@
                 "ratio": 2
             }
         },
+        "main-s5-r3": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 3
+            }
+        },
         "main-s5-r4": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -496,6 +901,33 @@
             "parameters": {
                 "scaleFactor": 5,
                 "ratio": 4
+            }
+        },
+        "main-s5-r5": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 5
+            }
+        },
+        "main-s5-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 7
+            }
+        },
+        "main-s5-r9": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 9
             }
         },
         "main-s5-r11": {
@@ -507,6 +939,15 @@
                 "ratio": 11
             }
         },
+        "main-s5-r13": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 13
+            }
+        },
         "main-s5-r17": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -516,6 +957,33 @@
                 "ratio": 17
             }
         },
+        "main-s5-r21": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 21
+            }
+        },
+        "main-s5-r26": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 26
+            }
+        },
+        "main-s5-r33": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 33
+            }
+        },
         "main-s5-r41": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -523,6 +991,33 @@
             "parameters": {
                 "scaleFactor": 5,
                 "ratio": 41
+            }
+        },
+        "main-s5-r51": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 51
+            }
+        },
+        "main-s5-r64": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 64
+            }
+        },
+        "main-s5-r80": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 5,
+                "ratio": 80
             }
         },
         "main-s5-r100": {
@@ -539,106 +1034,111 @@
         "order": "fixed",
         "components": [
             "consent",
+            "pre-screen",
+            "instruction",
             {
                 "order": "fixed",
-                "skip": [
-                    {
-                        "name": "pre-screen",
-                        "check": "response",
-                        "responseId": "ps-vision",
-                        "value": "No",
-                        "comparison": "equal",
-                        "to": "non-qualified"
-                    },
-                    {
-                        "name": "pre-screen",
-                        "check": "response",
-                        "responseId": "ps-device-check",
-                        "value": "No",
-                        "comparison": "equal",
-                        "to": "non-qualified"
-                    },
-                    {
-                        "name": "pre-screen",
-                        "check": "response",
-                        "responseId": "ps-grey-scale-response",
-                        "value": "247",
-                        "comparison": "notEqual",
-                        "to": "non-qualified"
-                    },
-                    {
-                        "name": "pre-screen-scroll",
-                        "check": "response",
-                        "responseId": "ps-scroll-response",
-                        "value": "582",
-                        "comparison": "notEqual",
-                        "to": "non-qualified"
-                    },
-                    {
-                        "name": "study-complete",
-                        "check": "response",
-                        "responseId": "finish-confirm",
-                        "value": "Finish",
-                        "comparison": "equal",
-                        "to": "end"
-                    }
-                ],
                 "components": [
-                    "pre-screen",
-                    "pre-screen-scroll",
-                    "instruction",
-                    {
-                        "order": "fixed",
-                        "components": [
-                            "tutorial-1-s1-r2",
-                            "tutorial-2-s1-r8",
-                            "tutorial-3-s1-r19",
-                            "transition-scroll",
-                            "tutorial-4-s2-r2",
-                            "tutorial-5-s2-r12",
-                            "tutorial-6-s2-r23"
-                        ]
-                    },
-                    "transition-to-main",
-                    {
-                        "order": "random",
-                        "components": [
-                            "main-s1-r2",
-                            "main-s1-r4",
-                            "main-s1-r11",
-                            "main-s1-r17",
-                            "main-s1-r41",
-                            "main-s1-r100",
-                            "main-s2-r2",
-                            "main-s2-r4",
-                            "main-s2-r11",
-                            "main-s2-r17",
-                            "main-s2-r41",
-                            "main-s2-r100",
-                            "main-s3-r2",
-                            "main-s3-r4",
-                            "main-s3-r11",
-                            "main-s3-r17",
-                            "main-s3-r41",
-                            "main-s3-r100",
-                            "main-s4-r2",
-                            "main-s4-r4",
-                            "main-s4-r11",
-                            "main-s4-r17",
-                            "main-s4-r41",
-                            "main-s4-r100",
-                            "main-s5-r2",
-                            "main-s5-r4",
-                            "main-s5-r11",
-                            "main-s5-r17",
-                            "main-s5-r41",
-                            "main-s5-r100"
-                        ]
-                    },
-                    "study-complete"
+                    "tutorial-1-s1-r2",
+                    "tutorial-2-s1-r8",
+                    "tutorial-3-s1-r19",
+                    "transition-scroll",
+                    "tutorial-4-s2-r2",
+                    "tutorial-5-s2-r12",
+                    "tutorial-6-s2-r23"
                 ]
             },
-            "non-qualified"
+            "transition-to-main",
+            {
+                "order": "random",
+                "components": [
+                    "main-s1-r2",
+                    "main-s1-r3",
+                    "main-s1-r4",
+                    "main-s1-r5",
+                    "main-s1-r7",
+                    "main-s1-r9",
+                    "main-s1-r11",
+                    "main-s1-r13",
+                    "main-s1-r17",
+                    "main-s1-r21",
+                    "main-s1-r26",
+                    "main-s1-r33",
+                    "main-s1-r41",
+                    "main-s1-r51",
+                    "main-s1-r64",
+                    "main-s1-r80",
+                    "main-s1-r100",
+                    "main-s2-r2",
+                    "main-s2-r3",
+                    "main-s2-r4",
+                    "main-s2-r5",
+                    "main-s2-r7",
+                    "main-s2-r9",
+                    "main-s2-r11",
+                    "main-s2-r13",
+                    "main-s2-r17",
+                    "main-s2-r21",
+                    "main-s2-r26",
+                    "main-s2-r33",
+                    "main-s2-r41",
+                    "main-s2-r51",
+                    "main-s2-r64",
+                    "main-s2-r80",
+                    "main-s2-r100",
+                    "main-s3-r2",
+                    "main-s3-r3",
+                    "main-s3-r4",
+                    "main-s3-r5",
+                    "main-s3-r7",
+                    "main-s3-r9",
+                    "main-s3-r11",
+                    "main-s3-r13",
+                    "main-s3-r17",
+                    "main-s3-r21",
+                    "main-s3-r26",
+                    "main-s3-r33",
+                    "main-s3-r41",
+                    "main-s3-r51",
+                    "main-s3-r64",
+                    "main-s3-r80",
+                    "main-s3-r100",
+                    "main-s4-r2",
+                    "main-s4-r3",
+                    "main-s4-r4",
+                    "main-s4-r5",
+                    "main-s4-r7",
+                    "main-s4-r9",
+                    "main-s4-r11",
+                    "main-s4-r13",
+                    "main-s4-r17",
+                    "main-s4-r21",
+                    "main-s4-r26",
+                    "main-s4-r33",
+                    "main-s4-r41",
+                    "main-s4-r51",
+                    "main-s4-r64",
+                    "main-s4-r80",
+                    "main-s4-r100",
+                    "main-s5-r2",
+                    "main-s5-r3",
+                    "main-s5-r4",
+                    "main-s5-r5",
+                    "main-s5-r7",
+                    "main-s5-r9",
+                    "main-s5-r11",
+                    "main-s5-r13",
+                    "main-s5-r17",
+                    "main-s5-r21",
+                    "main-s5-r26",
+                    "main-s5-r33",
+                    "main-s5-r41",
+                    "main-s5-r51",
+                    "main-s5-r64",
+                    "main-s5-r80",
+                    "main-s5-r100"
+                ]
+            }
         ]
     }
 }
