@@ -54,6 +54,9 @@
         documentWidth: document.documentElement.scrollWidth,
       });
     },
+    requestNext: () => {
+      sendMessage("REQUEST_NEXT", {});
+    },
     onDataReceive: (fn) => {
       onDataReceiveCallback = fn;
     },

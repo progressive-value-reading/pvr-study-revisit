@@ -54,7 +54,8 @@
                 }
             ],
             "path": "pvr-study-1/assets/bar-chart-main.html",
-            "instructionLocation": "aboveStimulus"
+            "instructionLocation": "aboveStimulus",
+            "nextOnEnter": true
         },
         "bar-chart-tutorial": {
             "type": "website",
@@ -77,7 +78,8 @@
                 }
             ],
             "path": "pvr-study-1/assets/bar-chart-tutorial.html",
-            "instructionLocation": "aboveStimulus"
+            "instructionLocation": "aboveStimulus",
+            "nextOnEnter": true
         }
     },
     "components": {
