@@ -1,3 +1,5 @@
-You have completed the tutorial.
+You have completed the tutorial. Next is the main study and the correct ratios will no longer be shown.
 
-You will now begin the main study. The correct ratios will no longer be shown after you submit your answers.
+Please stay focused throughout the task, and remember to give your quick best guess without overthinking.
+
+As soon as you click Next or press Enter, the study will begin. 

@@ -1,6 +1,6 @@
 # Generate Textures
 
-This folder contains a standalone script that generates the five static background images for `pvr-study-1` using the existing browser-based `generateTextureBackground()` code.
+This folder contains a standalone script that generates the static background images for `pvr-study-1` using the existing browser-based `generateTextureBackground()` code.
 
 ## Output files
 
@@ -8,9 +8,9 @@ Running the script writes these files into `public/pvr-study-1/assets/`:
 
 - `background-s1.png`
 - `background-s2.png`
-- `background-s3.png`
 - `background-s4.png`
-- `background-s5.png`
+- `background-s8.png`
+- `background-s16.png`
 
 ## Run it
 

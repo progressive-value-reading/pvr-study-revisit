@@ -11,7 +11,7 @@ const HOST = '127.0.0.1';
 const VIEWPORT_WIDTH = 500;
 const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
-const SCALE_FACTORS = [1, 2, 3, 4, 5];
+const SCALE_FACTORS = [1, 2, 4, 8, 16];
 const TEXTURE_MODULE_PATH = '/public/pvr-study-1/textureGenerator.js';
 
 const CONTENT_TYPES = {

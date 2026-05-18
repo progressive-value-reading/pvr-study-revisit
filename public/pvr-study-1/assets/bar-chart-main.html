@@ -148,7 +148,7 @@
       const submitHint = document.getElementById('submitHint');
       const fitWarning = document.getElementById('fitWarning');
       const mustReachTop = clampedScaleFactor > 1;
-      const backgroundScaleFactor = Math.max(1, Math.min(5, Math.round(clampedScaleFactor)));
+      const backgroundScaleFactor = Math.round(clampedScaleFactor);
       let hasReachedTop = !mustReachTop;
       let isSubmitted = false;
       let wasEditable = false;
