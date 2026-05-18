@@ -117,7 +117,7 @@
       <input id="integerAnswer" type="number" step="1" />
       <button id="submitAnswer" type="button">Submit answer</button>
     </div>
-    <div id="submitHint">Press enter or click the button to submit your estimate.</div>
+    <div id="submitHint">Type your estimate (no need to click the field). Press Enter to submit, then Enter again for the next chart.</div>
     <div id="fitWarning" role="alert" aria-live="polite"></div>
   </body>
   <script type="module">
@@ -151,6 +151,8 @@
       const backgroundScaleFactor = Math.max(1, Math.min(5, Math.round(clampedScaleFactor)));
       let hasReachedTop = !mustReachTop;
       let isSubmitted = false;
+      let wasEditable = false;
+      let canAnswer = false;
 
       chartArea.style.width = `${viewportWidth}px`;
       chartArea.style.height = `${chartHeight}px`;
@@ -302,6 +304,7 @@
         }
 
         const canEdit = isTaskVisible && hasReachedTop;
+        canAnswer = canEdit;
         const rawInput = integerAnswer.value.trim();
         const parsed = Number(rawInput);
         const hasIntegerInput = rawInput !== '' && Number.isInteger(parsed);
@@ -311,6 +314,10 @@
         integerAnswer.disabled = !canEdit || isSubmitted;
         submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit answer';
         submitAnswer.disabled = isSubmitted || !hasIntegerInput || !canEdit;
+        if (canEdit && !wasEditable && !isSubmitted) {
+          integerAnswer.focus({ preventScroll: true });
+        }
+        wasEditable = canEdit;
       };
 
       const postAnswer = (answerValue) => {
@@ -335,12 +342,56 @@
         updateScrollState();
       };
 
+      const goToNextChart = () => {
+        Revisit.requestNext();
+      };
+
       integerAnswer.onkeydown = (event) => {
-        if (event.key === 'Enter' && !submitAnswer.disabled) {
-          event.preventDefault();
+        if (event.key !== 'Enter') {
+          return;
+        }
+        event.preventDefault();
+        if (isSubmitted) {
+          goToNextChart();
+          return;
+        }
+        if (!submitAnswer.disabled) {
           submitAnswer.click();
         }
       };
+
+      const handleDocumentKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          if (isSubmitted) {
+            event.preventDefault();
+            goToNextChart();
+            return;
+          }
+          if (document.activeElement === integerAnswer) {
+            return;
+          }
+          if (canAnswer && !submitAnswer.disabled) {
+            event.preventDefault();
+            submitAnswer.click();
+          }
+          return;
+        }
+
+        if (isSubmitted || !canAnswer || event.ctrlKey || event.metaKey || event.altKey) {
+          return;
+        }
+        if (document.activeElement === integerAnswer) {
+          return;
+        }
+        if (/^[0-9]$/.test(event.key)) {
+          event.preventDefault();
+          integerAnswer.focus({ preventScroll: true });
+          integerAnswer.value = `${integerAnswer.value}${event.key}`;
+          updateScrollState();
+        }
+      };
+
+      document.addEventListener('keydown', handleDocumentKeyDown);
       integerAnswer.addEventListener('wheel', () => {
         integerAnswer.blur();
       });

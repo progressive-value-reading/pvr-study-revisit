@@ -4,6 +4,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { useCurrentComponent, useCurrentIdentifier } from '../routes/utils';
 import { useStoreDispatch, useStoreActions } from '../store/store';
+import { useNextStep } from '../store/hooks/useNextStep';
 import { ParticipantData, WebsiteComponent } from '../parser/types';
 import { PREFIX as BASE_PREFIX } from '../utils/Prefix';
 
@@ -16,6 +17,7 @@ export function IframeController({ currentConfig, provState, answers }: { curren
   const storeDispatch = useStoreDispatch();
   const dispatch = useDispatch();
   const identifier = useCurrentIdentifier();
+  const { isNextDisabled, goToNextStep } = useNextStep();
 
   const ref = useRef<HTMLIFrameElement>(null);
 
@@ -84,6 +86,13 @@ export function IframeController({ currentConfig, provState, answers }: { curren
               provenanceGraph: data.message,
             }));
             break;
+          case `${PREFIX}/REQUEST_NEXT`:
+            window.setTimeout(() => {
+              if (!isNextDisabled) {
+                goToNextStep();
+              }
+            }, 0);
+            break;
           default:
             break;
         }
@@ -93,7 +102,18 @@ export function IframeController({ currentConfig, provState, answers }: { curren
     window.addEventListener('message', handler);
 
     return () => window.removeEventListener('message', handler);
-  }, [storeDispatch, dispatch, iframeId, currentConfig, sendMessage, setReactiveAnswers, updateResponseBlockValidation, identifier]);
+  }, [
+    storeDispatch,
+    dispatch,
+    iframeId,
+    currentConfig,
+    sendMessage,
+    setReactiveAnswers,
+    updateResponseBlockValidation,
+    identifier,
+    isNextDisabled,
+    goToNextStep,
+  ]);
 
   return (
     <iframe
