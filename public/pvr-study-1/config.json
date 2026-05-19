@@ -214,22 +214,22 @@
                 "ratio": 2
             }
         },
-        "tutorial-2-s1-r8": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
-            "parameters": {
-                "scaleFactor": 1,
-                "ratio": 8
-            }
-        },
-        "tutorial-3-s1-r19": {
+        "tutorial-2-s1-r19": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 1,
                 "ratio": 19
+            }
+        },
+        "tutorial-3-s1-r90": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
+            "parameters": {
+                "scaleFactor": 1,
+                "ratio": 90
             }
         },
         "tutorial-4-s2-r2": {
@@ -241,40 +241,22 @@
                 "ratio": 2
             }
         },
-        "tutorial-5-s2-r12": {
+        "tutorial-5-s2-r19": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 2,
-                "ratio": 12
+                "ratio": 19
             }
         },
-        "tutorial-6-s2-r23": {
+        "tutorial-6-s2-r90": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 2,
-                "ratio": 23
-            }
-        },
-        "tutorial-6-s2-r57": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
-            "parameters": {
-                "scaleFactor": 2,
-                "ratio": 57
-            }
-        },
-        "tutorial-6-s2-r100": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
-            "parameters": {
-                "scaleFactor": 2,
-                "ratio": 100
+                "ratio": 90
             }
         },
         "main-s1-r3": {
@@ -412,13 +394,13 @@
                 "ratio": 80
             }
         },
-        "main-s1-r97": {
+        "main-s1-r100": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 1,
-                "ratio": 97
+                "ratio": 100
             }
         },
         "main-s2-r3": {
@@ -556,13 +538,13 @@
                 "ratio": 80
             }
         },
-        "main-s2-r97": {
+        "main-s2-r100": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 2,
-                "ratio": 97
+                "ratio": 100
             }
         },
         "main-s8-r3": {
@@ -700,13 +682,13 @@
                 "ratio": 80
             }
         },
-        "main-s8-r97": {
+        "main-s8-r100": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 8,
-                "ratio": 97
+                "ratio": 100
             }
         },
         "main-s4-r3": {
@@ -844,13 +826,13 @@
                 "ratio": 80
             }
         },
-        "main-s4-r97": {
+        "main-s4-r100": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 4,
-                "ratio": 97
+                "ratio": 100
             }
         },
         "main-s16-r3": {
@@ -988,13 +970,13 @@
                 "ratio": 80
             }
         },
-        "main-s16-r97": {
+        "main-s16-r100": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 16,
-                "ratio": 97
+                "ratio": 100
             }
         },
         "post-study-feedback": {
@@ -1008,7 +990,7 @@
                     "prompt": "Please select the scroll method you used in this study:",
                     "type": "checkbox",
                     "location": "aboveStimulus",
-                    "options": [
+                    "options": [                    
                         "Mousewheel",
                         "Trackpad",
                         "Touch scrolling"
@@ -1109,14 +1091,12 @@
                 "order": "fixed",
                 "components": [
                     "tutorial-1-s1-r2",
-                    "tutorial-2-s1-r8",
-                    "tutorial-3-s1-r19",
+                    "tutorial-2-s1-r19",
+                    "tutorial-3-s1-r90",
                     "transition-scroll",
                     "tutorial-4-s2-r2",
-                    "tutorial-5-s2-r12",
-                    "tutorial-6-s2-r23",
-                    "tutorial-6-s2-r57",
-                    "tutorial-6-s2-r100"
+                    "tutorial-5-s2-r19",
+                    "tutorial-6-s2-r90"
                 ]
             },
             "transition-to-main",
@@ -1138,7 +1118,7 @@
                     "main-s1-r51",
                     "main-s1-r64",
                     "main-s1-r80",
-                    "main-s1-r97",
+                    "main-s1-r100",
                     "main-s2-r3",
                     "main-s2-r4",
                     "main-s2-r5",
@@ -1154,7 +1134,7 @@
                     "main-s2-r51",
                     "main-s2-r64",
                     "main-s2-r80",
-                    "main-s2-r97",
+                    "main-s2-r100",
                     "main-s4-r3",
                     "main-s4-r4",
                     "main-s4-r5",
@@ -1170,7 +1150,7 @@
                     "main-s4-r51",
                     "main-s4-r64",
                     "main-s4-r80",
-                    "main-s4-r97",
+                    "main-s4-r100",
                     "main-s8-r3",
                     "main-s8-r4",
                     "main-s8-r5",
@@ -1186,7 +1166,7 @@
                     "main-s8-r51",
                     "main-s8-r64",
                     "main-s8-r80",
-                    "main-s8-r97",
+                    "main-s8-r100",
                     "main-s16-r3",
                     "main-s16-r4",
                     "main-s16-r5",
@@ -1202,7 +1182,7 @@
                     "main-s16-r51",
                     "main-s16-r64",
                     "main-s16-r80",
-                    "main-s16-r97"
+                    "main-s16-r100"
                 ]
             },
             "post-study-feedback",

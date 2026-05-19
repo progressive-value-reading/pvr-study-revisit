@@ -31,7 +31,7 @@ https://www.inria.fr/en/operational-committee-assesment-legal-and-ethical-risks.
 ### II.YOUR PARTICIPATION IN THE STUDY
 
 **Voluntary participation in the study**:
-By clicking the “I consent” button at the end of this page, you give consent that you agree to participate in the study. If you don't have all the information you need to make a decision, please ask for more information from the contact persons (see below).
+By selecting “Yes” button at the end of this page, you give consent that you agree to participate in the study. If you don't have all the information you need to make a decision, please ask for more information from the contact persons (see below).
 
 **Withdrawal from the study at any time**:
 You are completely free to leave the study at any time. You do not have to provide any reasons for your withdrawal. However, you will only be compensated if you complete the study to the end.
