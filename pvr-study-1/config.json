@@ -214,22 +214,22 @@
                 "ratio": 2
             }
         },
-        "tutorial-2-s1-r19": {
+        "tutorial-2-s1-r22": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 1,
-                "ratio": 19
+                "ratio": 22
             }
         },
-        "tutorial-3-s1-r90": {
+        "tutorial-3-s1-r95": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar.",
             "parameters": {
                 "scaleFactor": 1,
-                "ratio": 90
+                "ratio": 95
             }
         },
         "tutorial-4-s2-r2": {
@@ -1091,8 +1091,8 @@
                 "order": "fixed",
                 "components": [
                     "tutorial-1-s1-r2",
-                    "tutorial-2-s1-r19",
-                    "tutorial-3-s1-r90",
+                    "tutorial-2-s1-r22",
+                    "tutorial-3-s1-r95",
                     "transition-scroll",
                     "tutorial-4-s2-r2",
                     "tutorial-5-s2-r19",
