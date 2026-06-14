@@ -23,7 +23,8 @@
         "autoDownloadStudy": false,
         "withSidebar": true,
         "windowEventDebounceTime": 100,
-        "studyEndMsg": "Thank you for participating in the study!"
+        "studyEndMsg": "Thank you for taking part in this study.\n\nYour answers have been saved. To confirm your submission on Prolific and receive payment, use the link below or enter this completion code on Prolific:\n\n**Completion code:** `YOUR_COMPLETION_CODE`\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_COMPLETION_CODE)",
+        "urlParticipantIdParam": "PROLIFIC_PID"
     },
     "studyRules": {
         "display": {
@@ -165,20 +166,33 @@
             "type": "markdown",
             "path": "pvr-study-1/assets/non-qualified.md",
             "nextButtonText": "Finish",
-            "response": []
+            "response": [
+                {
+                    "id": "nq-finish",
+                    "prompt": "",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "hidden": true,
+                    "options": [
+                        "Finish"
+                    ],
+                    "default": "Finish"
+                }
+            ]
         },
         "study-complete": {
             "type": "markdown",
             "path": "pvr-study-1/assets/study-complete.md",
             "nextButtonText": "Finish",
+            "nextOnEnter": true,
             "response": [
                 {
                     "id": "finish-confirm",
-                    "prompt": "Confirm to finalize and submit your data.",
+                    "prompt": "Please confirm your submission:",
                     "type": "radio",
                     "location": "belowStimulus",
                     "options": [
-                        "Finish"
+                        "Submit"
                     ]
                 }
             ]
@@ -983,7 +997,7 @@
             "type": "questionnaire",
             "description": "Post-study feedback form",
             "instruction": "",
-            "nextButtonText": "Submit feedback and finish",
+            "nextButtonText": "Continue",
             "response": [
                 {
                     "id": "post-scroll-method",
@@ -1012,6 +1026,30 @@
                     "location": "aboveStimulus",
                     "required": false,
                     "placeholder": "For example, mention whether you used a ruler, calculator, notes, or anything else, or leave blank."
+                },
+                {
+                    "id": "post-prior-scrollable-viz-frequency",
+                    "prompt": "In this study, you sometimes had to scroll to see the full height of a bar in a chart. **Before participating today**, how often do you remember seeing similar charts or visualizations on the web—where you needed to scroll to view an entire data value?",
+                    "type": "radio",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "horizontal": true,
+                    "options": [
+                        { "label": "1: Never", "value": "1" },
+                        { "label": "2: Rarely", "value": "2" },
+                        { "label": "3: Sometimes", "value": "3" },
+                        { "label": "4: Often", "value": "4" },
+                        { "label": "5: Very often", "value": "5" }
+                    ]
+                },
+                {
+                    "id": "post-prior-scrollable-viz-example",
+                    "prompt": "If a specific example comes to mind, you may share its title or a link below (optional).",
+                    "secondaryText": "Only if you wish—this will not affect your compensation.",
+                    "type": "shortText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "e.g. a news article, dashboard, or website name—or paste a URL"
                 },
                 {
                     "id": "post-task-feedback",
@@ -1197,9 +1235,26 @@
                         "name": "study-complete",
                         "check": "response",
                         "responseId": "finish-confirm",
-                        "value": "Finish",
+                        "value": "Submit",
                         "comparison": "equal",
                         "to": "end"
+                    }
+                ]
+            },
+            {
+                "id": "non-qualified-flow",
+                "order": "fixed",
+                "components": [
+                    "non-qualified"
+                ],
+                "skip": [
+                    {
+                        "name": "non-qualified",
+                        "check": "response",
+                        "responseId": "nq-finish",
+                        "value": "Finish",
+                        "comparison": "equal",
+                        "to": "non-qualified"
                     }
                 ]
             },
