@@ -1,5 +1,5 @@
 # Thank you for completing the study!
 
-Your responses have been recorded.
+Please confirm your submission below. 
 
-Please confirm below to finalize and submit your data.
+On the next screen, you will receive a link and completion code to accomplish your participation on Prolific.
