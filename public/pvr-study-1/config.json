@@ -1001,31 +1001,36 @@
             "response": [
                 {
                     "id": "post-scroll-method",
-                    "prompt": "Please select the scroll method you used in this study:",
-                    "type": "checkbox",
-                    "location": "aboveStimulus",
-                    "options": [                    
-                        "Mousewheel",
-                        "Trackpad",
-                        "Touch scrolling"
-                    ],
-                    "withOther": true
-                },
-                {
-                    "id": "post-estimation-strategy",
-                    "prompt": "Please describe the strategies you used to estimate, if any.",
+                    "prompt": "Please tell us the scroll method you used in this study:",
                     "type": "longText",
                     "location": "aboveStimulus",
-                    "required": false,
-                    "placeholder": "Share any strategy you used, or leave blank."
+                    "placeholder": "e.g. mousewheel, trackpad, touch scrolling, pageup/down keys"
                 },
                 {
                     "id": "post-external-tool-use",
-                    "prompt": "Did you use any external tool to estimate during the study? If yes, please describe what you used. Your answer won't affect your compensation.",
+                    "prompt": "Did you count, calculate, or use any external tool to estimate during the study? Your answer won't affect your compensation.",
+                    "type": "checkbox",
+                    "location": "aboveStimulus",
+                    "required": true,
+                    "options": [
+                        { "label": "Yes", "value": "yes" },
+                        { "label": "No", "value": "no" }
+                    ]
+                },
+                {
+                    "id": "post-external-tool-use-details",
+                    "prompt": "If you answered Yes above, please describe what you did. Your answer won't affect your compensation.",
                     "type": "longText",
                     "location": "aboveStimulus",
                     "required": false,
-                    "placeholder": "For example, mention whether you used a ruler, calculator, notes, or anything else, or leave blank."
+                    "placeholder": "e.g. counted how many times you scrolled, used phone calculator, wrote notes on paper"
+                },
+                {
+                    "id": "post-estimation-strategy",
+                    "prompt": "Please describe your strategies to estimate except for counting, calculating, or using external tools, if any.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false
                 },
                 {
                     "id": "post-prior-scrollable-viz-frequency",
@@ -1044,8 +1049,7 @@
                 },
                 {
                     "id": "post-prior-scrollable-viz-example",
-                    "prompt": "If a specific example comes to mind, you may share its title or a link below (optional).",
-                    "secondaryText": "Only if you wish—this will not affect your compensation.",
+                    "prompt": "If a specific example comes to mind, you may share its title or a link below.",
                     "type": "shortText",
                     "location": "aboveStimulus",
                     "required": false,
