@@ -410,6 +410,15 @@
       };
       document.addEventListener('keydown', blockKeyboardScrollKeys, true);
       viewport.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      const blockMiddleMouseScroll = (event) => {
+        if (event.button === 1) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      };
+      viewport.addEventListener('mousedown', blockMiddleMouseScroll, true);
+      viewport.addEventListener('auxclick', blockMiddleMouseScroll, true);
+      viewport.addEventListener('pointerdown', blockMiddleMouseScroll, true);
       integerAnswer.addEventListener('wheel', () => {
         integerAnswer.blur();
       });
