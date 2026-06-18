@@ -89,6 +89,10 @@
       const blockKeyboardScrollKeys = (event) => {
         if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Home' || event.key === 'End') {
           event.preventDefault();
+          return;
+        }
+        if (event.key === ' ' || event.key === 'Spacebar') {
+          event.preventDefault();
         }
       };
       document.addEventListener('keydown', blockKeyboardScrollKeys, true);
