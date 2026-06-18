@@ -30,6 +30,10 @@
         margin: 0 auto;
       }
 
+      #viewport:focus {
+        outline: none;
+      }
+
       #viewport::-webkit-scrollbar {
         width: 0;
         height: 0;
@@ -367,8 +371,10 @@
       });
 
       integerAnswer.oninput = updateScrollState;
+      viewport.tabIndex = -1;
       viewport.scrollTop = Math.max(0, chartHeight - viewportHeight);
       lastScrollTop = viewport.scrollTop;
+      viewport.focus({ preventScroll: true });
       viewport.onscroll = () => {
         trackScroll();
         updateScrollState();
