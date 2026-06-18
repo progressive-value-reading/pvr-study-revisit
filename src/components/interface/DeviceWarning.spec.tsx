@@ -179,8 +179,30 @@ describe('DeviceWarning', () => {
     expect(html).toContain('mobile');
     expect(html).toContain('Current input:');
     expect(html).toContain('touch');
-    expect(html).toContain('Current display:');
+    expect(html).toContain('Current browser window:');
     expect(html).toContain('900 x 700px');
+  });
+
+  test('shows required display rules alongside a custom blocked message', () => {
+    mockedStudyRules = {
+      display: {
+        minWidth: 842,
+        minHeight: 700,
+        blockedMessage: 'Custom display requirement message.',
+      },
+    };
+    mockedDeviceRules = {
+      ...mockedDeviceRules,
+      isDisplayAllowed: false,
+      currentDisplay: { width: 900, height: 650 },
+    };
+
+    const html = renderToStaticMarkup(<DeviceWarning />);
+    expect(html).toContain('Custom display requirement message.');
+    expect(html).toContain('Minimum width: 842px');
+    expect(html).toContain('Minimum height: 700px');
+    expect(html).toContain('Current browser window:');
+    expect(html).toContain('900 x 650px');
   });
 
   test('renders nothing in debug mode when requirements are not met', () => {

@@ -279,8 +279,22 @@ export function DeviceWarning({
                     <Text size="md" c="red" mb="xs">
                       {display.blockedMessage}
                     </Text>
+                    {displayRules.length > 0 && (
+                      <Text size="md" mb="xs">
+                        Required browser window:
+                      </Text>
+                    )}
+                    {displayRules.length > 0 && (
+                      <List ml="md" mb="xs">
+                        {displayRules.map((size) => (
+                          <List.Item key={size}>
+                            {size}
+                          </List.Item>
+                        ))}
+                      </List>
+                    )}
                     <Text size="md" c="red" mb="xs">
-                      Current display:
+                      Current browser window:
                       {' '}
                       {`${currentDisplay.width} x ${currentDisplay.height}px`}
                     </Text>
@@ -289,7 +303,7 @@ export function DeviceWarning({
                   <>
                     <Text size="md" c="red" mb="xs">
                       Your screen size is not compatible with the study.
-                      Current display:
+                      Current browser window:
                       {' '}
                       {`${currentDisplay.width} x ${currentDisplay.height}px`}
                     </Text>
