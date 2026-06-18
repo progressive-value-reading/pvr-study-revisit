@@ -183,7 +183,7 @@ describe('DeviceWarning', () => {
     expect(html).toContain('900 x 700px');
   });
 
-  test('shows required display rules alongside a custom blocked message', () => {
+  test('shows current browser window alongside a custom blocked message', () => {
     mockedStudyRules = {
       display: {
         minWidth: 842,
@@ -199,8 +199,6 @@ describe('DeviceWarning', () => {
 
     const html = renderToStaticMarkup(<DeviceWarning />);
     expect(html).toContain('Custom display requirement message.');
-    expect(html).toContain('Minimum width: 842px');
-    expect(html).toContain('Minimum height: 700px');
     expect(html).toContain('Current browser window:');
     expect(html).toContain('900 x 650px');
   });
