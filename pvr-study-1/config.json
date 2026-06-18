@@ -28,9 +28,9 @@
     },
     "studyRules": {
         "display": {
-            "minWidth": 1024,
-            "minHeight": 768,
-            "blockedMessage": "This study requires a screen at least 1024 \u00d7 768 pixels. Please open the study on a laptop or desktop, and make sure your browser window is maximized."
+            "minWidth": 842,
+            "minHeight": 700,
+            "blockedMessage": "This study requires a screen at least 800 \u00d7 600 pixels in landscape orientation. Please use a tablet (held horizontally), laptop, or desktop, and make sure your browser window is maximized."
         }
     },
     "baseComponents": {
@@ -55,7 +55,7 @@
                 }
             ],
             "path": "pvr-study-1/assets/bar-chart-main.html",
-            "instructionLocation": "aboveStimulus",
+            "instructionLocation": "sidebar",
             "nextOnEnter": true
         },
         "bar-chart-tutorial": {
@@ -79,7 +79,7 @@
                 }
             ],
             "path": "pvr-study-1/assets/bar-chart-tutorial.html",
-            "instructionLocation": "aboveStimulus",
+            "instructionLocation": "sidebar",
             "nextOnEnter": true
         }
     },
@@ -201,8 +201,8 @@
             "type": "website",
             "path": "pvr-study-1/assets/scroll-test.html",
             "description": "Scroll capability screening",
-            "instruction": "Please place your mouse cursor inside the frame below, then scroll upward until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
-            "instructionLocation": "aboveStimulus",
+            "instruction": "Scroll upward in the frame until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
+            "instructionLocation": "sidebar",
             "nextButtonText": "Next",
             "style": {
                 "width": "500px",
