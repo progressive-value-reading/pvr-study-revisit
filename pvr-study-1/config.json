@@ -30,7 +30,7 @@
         "display": {
             "minWidth": 842,
             "minHeight": 700,
-            "blockedMessage": "This study requires a screen at least 800 \u00d7 600 pixels in landscape orientation. Please use a tablet (held horizontally), laptop, or desktop, and make sure your browser window is maximized."
+            "blockedMessage": "This study requires your browser window to be at least 842 \u00d7 700 pixels in landscape orientation. Please use a tablet (held horizontally), laptop, or desktop, and make sure your browser window is maximized."
         }
     },
     "baseComponents": {
@@ -151,7 +151,7 @@
                 },
                 {
                     "id": "ps-device-check",
-                    "prompt": "Are you currently using a laptop or desktop computer?",
+                    "prompt": "Are you currently using a tablet,laptop or desktop computer?",
                     "type": "radio",
                     "location": "belowStimulus",
                     "options": [
