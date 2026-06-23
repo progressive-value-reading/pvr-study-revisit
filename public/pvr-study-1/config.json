@@ -23,7 +23,7 @@
         "autoDownloadStudy": false,
         "withSidebar": true,
         "windowEventDebounceTime": 100,
-        "studyEndMsg": "Thank you for taking part in this study.\n\nYour answers have been saved. To confirm your submission on Prolific and receive payment, use the link below or enter this completion code on Prolific:\n\n**Completion code:** `YOUR_COMPLETION_CODE`\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_COMPLETION_CODE)",
+        "studyEndMsg": "Thank you for taking part in this study. \n\nTo confirm your submission on Prolific, click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_COMPLETION_CODE)\n\n**Completion code:** `YOUR_COMPLETION_CODE`",
         "urlParticipantIdParam": "PROLIFIC_PID"
     },
     "studyRules": {
@@ -1013,8 +1013,14 @@
                     "location": "aboveStimulus",
                     "required": true,
                     "options": [
-                        { "label": "Yes", "value": "yes" },
-                        { "label": "No", "value": "no" }
+                        {
+                            "label": "Yes",
+                            "value": "yes"
+                        },
+                        {
+                            "label": "No",
+                            "value": "no"
+                        }
                     ]
                 },
                 {
@@ -1040,11 +1046,26 @@
                     "required": false,
                     "horizontal": true,
                     "options": [
-                        { "label": "1: Never", "value": "1" },
-                        { "label": "2: Rarely", "value": "2" },
-                        { "label": "3: Sometimes", "value": "3" },
-                        { "label": "4: Often", "value": "4" },
-                        { "label": "5: Very often", "value": "5" }
+                        {
+                            "label": "1: Never",
+                            "value": "1"
+                        },
+                        {
+                            "label": "2: Rarely",
+                            "value": "2"
+                        },
+                        {
+                            "label": "3: Sometimes",
+                            "value": "3"
+                        },
+                        {
+                            "label": "4: Often",
+                            "value": "4"
+                        },
+                        {
+                            "label": "5: Very often",
+                            "value": "5"
+                        }
                     ]
                 },
                 {

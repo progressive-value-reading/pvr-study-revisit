@@ -1,7 +1,12 @@
-# Sorry, you are not eligible to participate
+# Sorry, based on your responses, you do not meet the eligibility criteria for this study.
 
-Based on your responses, you do not meet the eligibility criteria for this study.
+**You will receive compensation for the time you spent on the pre-screening process.**
 
-Thank you for your interest. **You will receive compensation for the time you spent on the pre-screening process.**
+To confirm your submission on Prolific and receive payment for screening, 
 
-Click **Finish** below, then close this window and return to Prolific. **You do not need a completion code.** Payment for screening will be handled separately on Prolific.
+please click the link to [return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_SCREENING_COMPLETION_CODE);
+
+Or, copy and paste the **completion code:** `YOUR_SCREENING_COMPLETION_CODE` in Prolific.
+
+
+
