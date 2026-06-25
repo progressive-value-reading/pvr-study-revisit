@@ -133,15 +133,6 @@
             },
             "response": [
                 {
-                    "id": "prolificId",
-                    "prompt": "Please enter your Prolific ID",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "shortText",
-                    "placeholder": "Prolific ID",
-                    "paramCapture": "PROLIFIC_PID"
-                },
-                {
                     "id": "ps-grey-scale-response",
                     "prompt": "Please enter the number shown in the image bleow. This is to verify that your screen can properly display the charts we will use.",
                     "type": "shortText",
@@ -167,7 +158,16 @@
                         "Yes",
                         "No"
                     ]
-                }
+                },
+                {
+                    "id": "prolificId",
+                    "prompt": "Please enter your Prolific ID",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
+                },
             ],
             "nextOnEnter": true
         },
