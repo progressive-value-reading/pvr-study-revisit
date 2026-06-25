@@ -1040,41 +1040,24 @@
                 },
                 {
                     "id": "post-prior-scrollable-viz-frequency",
-                    "prompt": "In this study, you sometimes had to scroll to see the full height of a bar in a chart. **Before participating today**, how often do you remember seeing similar charts or visualizations on the web—where you needed to scroll to view an entire data value?",
+                    "prompt": "In this study, you sometimes had to scroll to see the full height of a bar in a chart. **Before participating today**, have you  ever seen similar charts or visualizations on the web—where you needed to scroll to view an entire data value?",
                     "type": "radio",
                     "location": "aboveStimulus",
-                    "required": false,
-                    "horizontal": true,
+                    "required": true,
                     "options": [
-                        {
-                            "label": "1: Never",
-                            "value": "1"
-                        },
-                        {
-                            "label": "2: Rarely",
-                            "value": "2"
-                        },
-                        {
-                            "label": "3: Sometimes",
-                            "value": "3"
-                        },
-                        {
-                            "label": "4: Often",
-                            "value": "4"
-                        },
-                        {
-                            "label": "5: Very often",
-                            "value": "5"
-                        }
+                        "Never",
+                        "Only once",
+                        "2-5 times",
+                        "More than 5 times"
                     ]
                 },
                 {
                     "id": "post-prior-scrollable-viz-example",
-                    "prompt": "If a specific example comes to mind, you may share its title or a link below.",
+                    "prompt": "If any specific examples come to mind, you may share titles or links below.",
                     "type": "shortText",
                     "location": "aboveStimulus",
                     "required": false,
-                    "placeholder": "e.g. a news article, dashboard, or website name—or paste a URL"
+                    "placeholder": "e.g. a news articles, dashboards, or website names—or paste URLs"
                 },
                 {
                     "id": "post-task-feedback",
