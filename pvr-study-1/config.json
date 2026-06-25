@@ -151,7 +151,7 @@
                 },
                 {
                     "id": "ps-device-check",
-                    "prompt": "Are you currently using a tablet,laptop or desktop computer?",
+                    "prompt": "Are you currently using a tablet, laptop or desktop computer?",
                     "type": "radio",
                     "location": "belowStimulus",
                     "options": [
