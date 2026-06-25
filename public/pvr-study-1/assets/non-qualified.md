@@ -4,9 +4,9 @@
 
 To confirm your submission on Prolific and receive payment for screening, 
 
-please click the link to [return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_SCREENING_COMPLETION_CODE);
+please click the link to [return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=CJ7FOFE5);
 
-Or, copy and paste the **completion code:** `YOUR_SCREENING_COMPLETION_CODE` in Prolific.
+Or, copy and paste the **completion code:** CJ7FOFE5 in Prolific.
 
 
 

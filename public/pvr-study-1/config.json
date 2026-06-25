@@ -23,7 +23,7 @@
         "autoDownloadStudy": false,
         "withSidebar": true,
         "windowEventDebounceTime": 100,
-        "studyEndMsg": "Thank you for taking part in this study. \n\nTo confirm your submission on Prolific, click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=YOUR_COMPLETION_CODE)\n\n**Completion code:** `YOUR_COMPLETION_CODE`",
+        "studyEndMsg": "Thank you for taking part in this study. \n\nTo confirm your submission on Prolific, click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=C3IEH2C1)\n\n**Completion code:** C3IEH2C1",
         "urlParticipantIdParam": "PROLIFIC_PID"
     },
     "studyRules": {
@@ -132,6 +132,15 @@
                 "border": "1px solid #999"
             },
             "response": [
+                {
+                    "id": "prolificId",
+                    "prompt": "Please enter your Prolific ID",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
+                },
                 {
                     "id": "ps-grey-scale-response",
                     "prompt": "Please enter the number shown in the image bleow. This is to verify that your screen can properly display the charts we will use.",
