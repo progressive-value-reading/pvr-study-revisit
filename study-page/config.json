@@ -78,7 +78,7 @@
                     "type": "reactive"
                 }
             ],
-            "path": "pvr-study-1/assets/bar-chart-tutorial.html",
+            "path": "study-page/assets/bar-chart-tutorial.html",
             "instructionLocation": "sidebar",
             "nextOnEnter": true
         }
@@ -86,7 +86,7 @@
     "components": {
         "consent": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/consent.md",
+            "path": "study-page/assets/consent.md",
             "nextButtonText": "Next",
             "response": [
                 {
@@ -104,27 +104,27 @@
         },
         "instruction": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/instruction.md",
+            "path": "study-page/assets/instruction.md",
             "nextButtonText": "I read every instruction clearly. And I am ready to enter the tutorial session.",
             "response": []
         },
         "transition-to-main": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/transition-to-main.md",
+            "path": "study-page/assets/transition-to-main.md",
             "nextButtonText": "Next",
             "response": [],
             "nextOnEnter": true
         },
         "transition-scroll": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/transition-scroll.md",
+            "path": "study-page/assets/transition-scroll.md",
             "nextButtonText": "Next",
             "response": [],
             "nextOnEnter": true
         },
         "pre-screen": {
             "type": "image",
-            "path": "pvr-study-1/assets/grey-scale.png",
+            "path": "study-page/assets/grey-scale.png",
             "description": "Pre-screening form on one page",
             "nextButtonText": "Next",
             "style": {
@@ -164,7 +164,7 @@
         },
         "non-qualified": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/non-qualified.md",
+            "path": "study-page/assets/non-qualified.md",
             "nextButtonText": "Finish",
             "response": [
                 {
@@ -182,7 +182,7 @@
         },
         "study-complete": {
             "type": "markdown",
-            "path": "pvr-study-1/assets/study-complete.md",
+            "path": "study-page/assets/study-complete.md",
             "nextButtonText": "Finish",
             "nextOnEnter": true,
             "response": [
@@ -199,7 +199,7 @@
         },
         "pre-screen-scroll": {
             "type": "website",
-            "path": "pvr-study-1/assets/scroll-test.html",
+            "path": "study-page/assets/scroll-test.html",
             "description": "Scroll capability screening",
             "instruction": "Scroll upward in the frame until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
             "instructionLocation": "sidebar",
