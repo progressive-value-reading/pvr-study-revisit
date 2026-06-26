@@ -20,7 +20,7 @@ You will view a series of bar charts on your computer, some of which require scr
 You will begin with a tutorial session, followed by the main test session. Please pay attention to all instructions and stay focused throughout. 
 
 **Compensation**
-You will receive a financial compensation of £3.50 for an estimated completion time of about 15 minutes, under the condition that you complete the experiment. However, compensation will be withheld if responses appear unrelated to the stimuli, suggesting the charts were ignored.
+You will receive a financial compensation of £5.06 for an estimated completion time of about 15-20 minutes, under the condition that you complete the experiment. However, compensation will be withheld if responses appear unrelated to the stimuli, suggesting the charts were ignored.
 
 **Privacy and data protection**
 We do not collect any personal or identifying data. This project was approved by Inria's Operational Committee for the Assessment of legal and ethical risks (COERLE). For more information, please visit:
