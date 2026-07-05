@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll test</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    #viewport {
+      width: 500px;
+      height: 500px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border: 1px solid #cccccc;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    #viewport:focus {
+      outline: none;
+    }
+
+    #viewport::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    #viewport {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #scrollArea {
+      width: 500px;
+      height: 1000px;
+      position: relative;
+      box-sizing: border-box;
+      background: #ffffff;
+    }
+
+    .number {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 120px;
+      font-weight: 800;
+      color: #222;
+      letter-spacing: 12px;
+      user-select: none;
+    }
+    .hint-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+      user-select: none;
+    }
+    .arrow {
+      font-size: 22px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="viewport">
+    <div id="scrollArea">
+      <div class="number">582</div>
+      <div class="hint-bottom">
+        <span class="arrow">&uarr;</span>
+        scroll up to find the number
+      </div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('load', function () {
+      const viewport = document.getElementById('viewport');
+      const blockKeyboardScrollKeys = (event) => {
+        if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Home' || event.key === 'End') {
+          event.preventDefault();
+          return;
+        }
+        if (event.key === ' ' || event.key === 'Spacebar') {
+          event.preventDefault();
+        }
+      };
+      document.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      viewport.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      const blockMiddleMouseScroll = (event) => {
+        if (event.button === 1) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      };
+      viewport.addEventListener('mousedown', blockMiddleMouseScroll, true);
+      viewport.addEventListener('auxclick', blockMiddleMouseScroll, true);
+      viewport.addEventListener('pointerdown', blockMiddleMouseScroll, true);
+      viewport.tabIndex = -1;
+      viewport.scrollTop = viewport.scrollHeight - viewport.clientHeight;
+      viewport.focus({ preventScroll: true });
+    });
+  </script>
+</body>
+</html>

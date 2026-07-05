@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.2/src/parser/GlobalConfigSchema.json",
   "configsList": [
-    "pvr-study-1"
+    "pvr-study-2234"
   ],
   "configs": {
-    "pvr-study-1": {
-      "path": "pvr-study-1/config.json"
+    "pvr-study-2234": {
+      "path": "pvr-study-2234/config.json"
     }
   }
 }
