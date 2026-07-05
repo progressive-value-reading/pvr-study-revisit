@@ -1,0 +1,801 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "Scrollable bar charts perception",
+        "version": "pilot",
+        "date": "2026-04-25",
+        "description": "Scrollable bar charts perception",
+        "authors": [
+            "Yvonne Jansen",
+            "Leni Yang",
+            "Pierre Dragicevic"
+        ],
+        "organizations": [
+            "Inria Bordeaux",
+            "CNRS"
+        ]
+    },
+    "uiConfig": {
+        "contactEmail": "leni.yang@inria.fr",
+        "helpTextPath": "pvr-study-2234/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "withSidebar": true,
+        "windowEventDebounceTime": 100,
+        "studyEndMsg": "Thank you for taking part in this study.\n\nYou should be redirected to Prolific in 5 seconds to confirm your task completion. Otherwise, please click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=C3IEH2C1)\n\n**Completion code:** C3IEH2C1",
+        "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C3IEH2C1",
+        "studyEndAutoRedirectDelay": 5000,
+        "urlParticipantIdParam": "PROLIFIC_PID"
+    },
+    "studyRules": {
+        "display": {
+            "minWidth": 842,
+            "minHeight": 700,
+            "blockedMessage": "This study requires your browser window to be at least 842 × 700 pixels in landscape orientation. Please use a tablet (held horizontally), laptop, or desktop, and make sure your browser window is maximized."
+        }
+    },
+    "baseComponents": {
+        "bar-chart": {
+            "type": "website",
+            "response": [
+                {
+                    "id": "barChart",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
+                },
+                {
+                    "id": "scrollMetrics",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
+                }
+            ],
+            "path": "pvr-study-2234/assets/bar-chart-main.html",
+            "instructionLocation": "sidebar",
+            "nextOnEnter": true
+        },
+        "bar-chart-tutorial": {
+            "type": "website",
+            "response": [
+                {
+                    "id": "barChart",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
+                },
+                {
+                    "id": "scrollMetrics",
+                    "prompt": "",
+                    "required": true,
+                    "hidden": true,
+                    "location": "belowStimulus",
+                    "type": "reactive"
+                }
+            ],
+            "path": "pvr-study-2234/assets/bar-chart-tutorial.html",
+            "instructionLocation": "sidebar",
+            "nextOnEnter": true
+        }
+    },
+    "components": {
+        "consent": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/consent.md",
+            "nextButtonText": "Next",
+            "response": [
+                {
+                    "id": "agree-to-participate",
+                    "prompt": "Do you agree to participate in the study?",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                }
+            ],
+            "nextOnEnter": true
+        },
+        "instruction": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/instruction.md",
+            "nextButtonText": "I read every instruction clearly. And I am ready to enter the tutorial session.",
+            "response": []
+        },
+        "transition-to-main": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/transition-to-main.md",
+            "nextButtonText": "Next",
+            "response": [],
+            "nextOnEnter": true
+        },
+        "transition-scroll": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/transition-scroll.md",
+            "nextButtonText": "Next",
+            "response": [],
+            "nextOnEnter": true
+        },
+        "pre-screen": {
+            "type": "image",
+            "path": "pvr-study-2234/assets/grey-scale.png",
+            "description": "Pre-screening form on one page",
+            "nextButtonText": "Next",
+            "style": {
+                "width": "500px",
+                "border": "1px solid #999"
+            },
+            "response": [
+                {
+                    "id": "ps-grey-scale-response",
+                    "prompt": "Please enter the number shown in the image bleow. This is to verify that your screen can properly display the charts we will use.",
+                    "type": "shortText",
+                    "placeholder": "e.g. 123",
+                    "location": "aboveStimulus"
+                },
+                {
+                    "id": "ps-vision",
+                    "prompt": "Do you have normal or corrected-to-normal vision?",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "id": "ps-device-check",
+                    "prompt": "Are you currently using a tablet, laptop or desktop computer?",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "id": "prolificId",
+                    "prompt": "Please enter your Prolific ID",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
+                }
+            ],
+            "nextOnEnter": true
+        },
+        "non-qualified": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/non-qualified.md",
+            "nextButtonText": "Finish",
+            "response": [
+                {
+                    "id": "nq-finish",
+                    "prompt": "",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "hidden": true,
+                    "options": [
+                        "Finish"
+                    ],
+                    "default": "Finish"
+                }
+            ]
+        },
+        "study-complete": {
+            "type": "markdown",
+            "path": "pvr-study-2234/assets/study-complete.md",
+            "nextButtonText": "Finish",
+            "nextOnEnter": true,
+            "response": [
+                {
+                    "id": "finish-confirm",
+                    "prompt": "Please confirm your submission:",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "options": [
+                        "Submit"
+                    ]
+                }
+            ]
+        },
+        "pre-screen-scroll": {
+            "type": "website",
+            "path": "pvr-study-2234/assets/scroll-test.html",
+            "description": "Scroll capability screening",
+            "instruction": "Scroll upward in the frame until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
+            "instructionLocation": "sidebar",
+            "nextButtonText": "Next",
+            "style": {
+                "width": "500px",
+                "height": "500px"
+            },
+            "response": [
+                {
+                    "id": "ps-scroll-response",
+                    "prompt": "Number you saw at the top of the frame:",
+                    "type": "shortText",
+                    "placeholder": "e.g. 123",
+                    "location": "belowStimulus"
+                }
+            ],
+            "nextOnEnter": true
+        },
+        "post-study-feedback": {
+            "type": "questionnaire",
+            "description": "Post-study feedback form",
+            "instruction": "",
+            "nextButtonText": "Continue",
+            "response": [
+                {
+                    "id": "post-scroll-method",
+                    "prompt": "Please tell us the scroll method you used in this study:",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "placeholder": "e.g. mousewheel, trackpad, touch scrolling, pageup/down keys"
+                },
+                {
+                    "id": "post-external-tool-use",
+                    "prompt": "Did you count, calculate, or use any external tool to estimate during the study? Your answer won't affect your compensation.",
+                    "type": "checkbox",
+                    "location": "aboveStimulus",
+                    "required": true,
+                    "options": [
+                        {
+                            "label": "Yes",
+                            "value": "yes"
+                        },
+                        {
+                            "label": "No",
+                            "value": "no"
+                        }
+                    ]
+                },
+                {
+                    "id": "post-external-tool-use-details",
+                    "prompt": "If you answered Yes above, please describe what you did. Your answer won't affect your compensation.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "e.g. counted how many times you scrolled, used phone calculator, wrote notes on paper"
+                },
+                {
+                    "id": "post-estimation-strategy",
+                    "prompt": "Please describe your strategies to estimate except for counting, calculating, or using external tools, if any.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false
+                },
+                {
+                    "id": "post-prior-scrollable-viz-frequency",
+                    "prompt": "In this study, you sometimes had to scroll to see the full height of a bar in a chart. **Before participating today**, have you  ever seen similar charts or visualizations on the web—where you needed to scroll to view an entire data value?",
+                    "type": "radio",
+                    "location": "aboveStimulus",
+                    "required": true,
+                    "options": [
+                        "Never",
+                        "Only once",
+                        "2-5 times",
+                        "More than 5 times"
+                    ]
+                },
+                {
+                    "id": "post-prior-scrollable-viz-example",
+                    "prompt": "If any specific examples come to mind, you may share titles or links below.",
+                    "type": "shortText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "e.g. a news articles, dashboards, or website names—or paste URLs"
+                },
+                {
+                    "id": "post-task-feedback",
+                    "prompt": "If you have any feedback on your experience with the task, we would appreciate your input, for example, anything unclear or difficult about the instructions or task.",
+                    "type": "longText",
+                    "location": "aboveStimulus",
+                    "required": false,
+                    "placeholder": "Share any feedback about the task or instructions, or leave blank."
+                }
+            ]
+        },
+        "tutorial-1-r2": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 2
+            }
+        },
+        "tutorial-2-r14": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 14
+            }
+        },
+        "tutorial-3-r52": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 52
+            }
+        },
+        "tutorial-4-r100": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 100
+            }
+        },
+        "tutorial-5-r286": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 286
+            }
+        },
+        "tutorial-6-r559": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 559
+            }
+        },
+        "main-r2": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 2
+            }
+        },
+        "main-r4": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 4
+            }
+        },
+        "main-r7": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 7
+            }
+        },
+        "main-r14": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 14
+            }
+        },
+        "main-r27": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 27
+            }
+        },
+        "main-r52": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 52
+            }
+        },
+        "main-r100": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 100
+            }
+        },
+        "main-r110": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 110
+            }
+        },
+        "main-r121": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 121
+            }
+        },
+        "main-r133": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 133
+            }
+        },
+        "main-r147": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 147
+            }
+        },
+        "main-r161": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 161
+            }
+        },
+        "main-r177": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 177
+            }
+        },
+        "main-r195": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 195
+            }
+        },
+        "main-r215": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 215
+            }
+        },
+        "main-r236": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 236
+            }
+        },
+        "main-r260": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 260
+            }
+        },
+        "main-r286": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 286
+            }
+        },
+        "main-r315": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 315
+            }
+        },
+        "main-r346": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 346
+            }
+        },
+        "main-r381": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 381
+            }
+        },
+        "main-r419": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 419
+            }
+        },
+        "main-r462": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 462
+            }
+        },
+        "main-r508": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 508
+            }
+        },
+        "main-r559": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 559
+            }
+        },
+        "main-r615": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 615
+            }
+        },
+        "main-r676": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 676
+            }
+        },
+        "main-r744": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 744
+            }
+        },
+        "main-r819": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 819
+            }
+        },
+        "main-r901": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 901
+            }
+        },
+        "main-r991": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 991
+            }
+        },
+        "main-r1091": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 1091
+            }
+        },
+        "main-r1200": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 1200
+            }
+        },
+        "main-r1321": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 1321
+            }
+        },
+        "main-r1453": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 1453
+            }
+        },
+        "main-r1599": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 1599
+            }
+        }
+    },
+    "sequence": {
+        "order": "fixed",
+        "components": [
+            {
+                "id": "consent-flow",
+                "order": "fixed",
+                "components": [
+                    "consent"
+                ],
+                "skip": [
+                    {
+                        "name": "consent",
+                        "check": "response",
+                        "responseId": "agree-to-participate",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    }
+                ]
+            },
+            {
+                "id": "screening-flow",
+                "order": "fixed",
+                "components": [
+                    "pre-screen",
+                    "pre-screen-scroll"
+                ],
+                "skip": [
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-grey-scale-response",
+                        "value": "247",
+                        "comparison": "notEqual",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-vision",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen",
+                        "check": "response",
+                        "responseId": "ps-device-check",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    },
+                    {
+                        "name": "pre-screen-scroll",
+                        "check": "response",
+                        "responseId": "ps-scroll-response",
+                        "value": "582",
+                        "comparison": "notEqual",
+                        "to": "non-qualified"
+                    }
+                ]
+            },
+            "instruction",
+            {
+                "order": "fixed",
+                "components": [
+                    "tutorial-1-r2",
+                    "tutorial-2-r14",
+                    "tutorial-3-r52",
+                    "transition-scroll",
+                    "tutorial-4-r100",
+                    "tutorial-5-r286",
+                    "tutorial-6-r559"
+                ]
+            },
+            "transition-to-main",
+            {
+                "order": "random",
+                "components": [
+                    "main-r2",
+                    "main-r4",
+                    "main-r7",
+                    "main-r14",
+                    "main-r27",
+                    "main-r52",
+                    "main-r100",
+                    "main-r110",
+                    "main-r121",
+                    "main-r133",
+                    "main-r147",
+                    "main-r161",
+                    "main-r177",
+                    "main-r195",
+                    "main-r215",
+                    "main-r236",
+                    "main-r260",
+                    "main-r286",
+                    "main-r315",
+                    "main-r346",
+                    "main-r381",
+                    "main-r419",
+                    "main-r462",
+                    "main-r508",
+                    "main-r559",
+                    "main-r615",
+                    "main-r676",
+                    "main-r744",
+                    "main-r819",
+                    "main-r901",
+                    "main-r991",
+                    "main-r1091",
+                    "main-r1200",
+                    "main-r1321",
+                    "main-r1453",
+                    "main-r1599"
+                ]
+            },
+            "post-study-feedback",
+            {
+                "id": "completion-flow",
+                "order": "fixed",
+                "components": [
+                    "study-complete"
+                ],
+                "skip": [
+                    {
+                        "name": "study-complete",
+                        "check": "response",
+                        "responseId": "finish-confirm",
+                        "value": "Submit",
+                        "comparison": "equal",
+                        "to": "end"
+                    }
+                ]
+            },
+            {
+                "id": "non-qualified-flow",
+                "order": "fixed",
+                "components": [
+                    "non-qualified"
+                ],
+                "skip": [
+                    {
+                        "name": "non-qualified",
+                        "check": "response",
+                        "responseId": "nq-finish",
+                        "value": "Finish",
+                        "comparison": "equal",
+                        "to": "non-qualified"
+                    }
+                ]
+            },
+            "non-qualified"
+        ]
+    }
+}
