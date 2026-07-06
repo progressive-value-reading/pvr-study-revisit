@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const RATIOS = [2, 14, 27, 52, 100, 192, 2478, 2822, 3215, 3662, 4171, 4752, 5413, 6166, 7023, 8000];
+const MAIN_RATIOS = [14, 27, 52, 100, 192, 2478, 2822, 3215, 3662, 4171, 4752, 5413, 6166, 7023, 8000];
 
 const TUTORIAL_RATIOS = [2, 9, 17, 32, 77, 129];
 
@@ -47,14 +47,14 @@ TUTORIAL_RATIOS.forEach((ratio, index) => {
   newComponents[`tutorial-${index + 1}-r${ratio}`] = makeTutorialTrial(index + 1, ratio);
 });
 
-RATIOS.forEach((ratio) => {
+MAIN_RATIOS.forEach((ratio) => {
   newComponents[`main-r${ratio}`] = makeMainTrial(ratio);
 });
 
 config.components = newComponents;
 
 const tutorialComponents = TUTORIAL_RATIOS.map((ratio, index) => `tutorial-${index + 1}-r${ratio}`);
-const mainComponents = RATIOS.map((ratio) => `main-r${ratio}`);
+const mainComponents = MAIN_RATIOS.map((ratio) => `main-r${ratio}`);
 
 const sequenceComponents = config.sequence.components;
 const tutorialBlockIndex = sequenceComponents.findIndex(
