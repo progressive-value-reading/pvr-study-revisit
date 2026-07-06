@@ -150,6 +150,7 @@ function buildSoftPerlinTextureCanvas(height, width, options = {}) {
     grayMin,
     grayMax,
     grain,
+    targetHeight,
   } = {
     ...TEXTURE_DEFAULTS,
     ...options,
@@ -168,8 +169,11 @@ function buildSoftPerlinTextureCanvas(height, width, options = {}) {
   let maxVal = -Infinity;
 
   for (let y = 0; y < h; y++) {
+    const sampleY = targetHeight && targetHeight > h
+      ? ((y + 0.5) * targetHeight) / h
+      : y;
     for (let x = 0; x < w; x++) {
-      let v = warpedNoise2D(x, y, {
+      let v = warpedNoise2D(x, sampleY, {
         seed,
         warpStrength,
         warpScaleX,
@@ -182,7 +186,7 @@ function buildSoftPerlinTextureCanvas(height, width, options = {}) {
       });
 
       const fine =
-        fractalNoise2D(x + 23.17, y - 11.43, {
+        fractalNoise2D(x + 23.17, sampleY - 11.43, {
           seed: seed + 3000,
           octaves: 2,
           lacunarity: 2.0,

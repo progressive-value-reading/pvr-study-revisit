@@ -79,14 +79,29 @@
       <div class="number">582</div>
       <div class="hint-bottom">
         <span class="arrow">&uarr;</span>
-        scroll up to find the number
+        scroll up to find the number (no scrolling back down)
       </div>
     </div>
   </div>
   <script>
     window.addEventListener('load', function () {
       const viewport = document.getElementById('viewport');
+      const initialScrollTop = viewport.scrollHeight - viewport.clientHeight;
+      let minScrollTopReached = initialScrollTop;
+
+      const enforceOneWayScroll = () => {
+        if (viewport.scrollTop > minScrollTopReached) {
+          viewport.scrollTop = minScrollTopReached;
+        } else if (viewport.scrollTop < minScrollTopReached) {
+          minScrollTopReached = viewport.scrollTop;
+        }
+      };
+
       const blockKeyboardScrollKeys = (event) => {
+        if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+          event.preventDefault();
+          return;
+        }
         if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Home' || event.key === 'End') {
           event.preventDefault();
           return;
@@ -97,6 +112,11 @@
       };
       document.addEventListener('keydown', blockKeyboardScrollKeys, true);
       viewport.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      viewport.addEventListener('wheel', (event) => {
+        if (event.deltaY > 0) {
+          event.preventDefault();
+        }
+      }, { passive: false });
       const blockMiddleMouseScroll = (event) => {
         if (event.button === 1) {
           event.preventDefault();
@@ -107,7 +127,9 @@
       viewport.addEventListener('auxclick', blockMiddleMouseScroll, true);
       viewport.addEventListener('pointerdown', blockMiddleMouseScroll, true);
       viewport.tabIndex = -1;
-      viewport.scrollTop = viewport.scrollHeight - viewport.clientHeight;
+      viewport.scrollTop = initialScrollTop;
+      minScrollTopReached = initialScrollTop;
+      viewport.onscroll = enforceOneWayScroll;
       viewport.focus({ preventScroll: true });
     });
   </script>

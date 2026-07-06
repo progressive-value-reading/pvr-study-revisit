@@ -11,12 +11,15 @@ const HOST = '127.0.0.1';
 const VIEWPORT_WIDTH = 500;
 const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
-const SHORT_BAR_HEIGHT = 10;
+const SHORT_BAR_HEIGHT = 23;
 
-const RATIOS = [
-  2, 4, 7, 14, 27, 52, 100, 110, 121, 133, 147, 161, 177, 195, 215, 236, 260, 286,
-  315, 346, 381, 419, 462, 508, 559, 615, 676, 744, 819, 901, 991, 1091, 1200, 1321, 1453, 1599,
-];
+const MAIN_RATIOS = [2, 14, 27, 52, 100, 192, 2478, 2822, 3215, 3662, 4171, 4752, 5413, 6166, 7023, 8000];
+const TUTORIAL_RATIOS = [2, 9, 17, 32, 77, 129];
+const RATIOS = [...new Set([...MAIN_RATIOS, ...TUTORIAL_RATIOS])].sort((a, b) => a - b);
+
+// Browsers cannot allocate canvases for very tall charts; generate up to this height
+// and stretch to full chart height via CSS background-size in the bar chart HTML.
+const MAX_TEXTURE_GENERATION_HEIGHT = 8192;
 
 const TEXTURE_MODULE_PATH = '/public/pvr-study-2234/textureGenerator.js';
 
@@ -37,6 +40,10 @@ const outputDir = path.join(repoRoot, 'public', 'pvr-study-2234', 'assets');
 function getChartHeight(ratio) {
   const tallBarHeight = SHORT_BAR_HEIGHT * ratio;
   return Math.max(VIEWPORT_HEIGHT, tallBarHeight + TOP_MARGIN);
+}
+
+function getGenerationHeight(chartHeight) {
+  return Math.min(chartHeight, MAX_TEXTURE_GENERATION_HEIGHT);
 }
 
 function resolveRequestPath(urlPathname) {
@@ -100,14 +107,19 @@ async function startStaticServer() {
   };
 }
 
-async function generateBackgroundDataUrl(page, chartHeight) {
+async function generateBackgroundDataUrl(page, generationHeight, chartHeight) {
   return page.evaluate(
-    async ({ textureModulePath, width, height }) => {
+    async ({ textureModulePath, width, height, targetHeight }) => {
       const { generateTextureBackground } = await import(textureModulePath);
-      return generateTextureBackground({ width, height });
+      return generateTextureBackground({
+        width,
+        height,
+        textureOptions: { targetHeight },
+      });
     },
     {
-      height: chartHeight,
+      height: generationHeight,
+      targetHeight: chartHeight,
       textureModulePath: TEXTURE_MODULE_PATH,
       width: VIEWPORT_WIDTH,
     },
@@ -143,14 +155,24 @@ async function main() {
 
     for (const ratio of ratiosToGenerate) {
       const chartHeight = getChartHeight(ratio);
+      const generationHeight = getGenerationHeight(chartHeight);
       const outputPath = path.join(outputDir, `background-r${ratio}.png`);
 
-      console.log(`Generating background for ratio=${ratio} (height=${chartHeight})...`);
-      const dataUrl = await generateBackgroundDataUrl(page, chartHeight);
+      console.log(
+        `Generating background for ratio=${ratio} (chartHeight=${chartHeight}, generationHeight=${generationHeight})...`,
+      );
+      const dataUrl = await generateBackgroundDataUrl(page, generationHeight, chartHeight);
+      if (!dataUrl.startsWith('data:image/png;base64,')) {
+        throw new Error(`Unexpected image data for ratio=${ratio}`);
+      }
       const base64 = dataUrl.replace(/^data:image\/png;base64,/, '');
+      const buffer = Buffer.from(base64, 'base64');
+      if (buffer.length < 1000 || buffer[0] !== 0x89) {
+        throw new Error(`Invalid PNG output for ratio=${ratio} (${buffer.length} bytes)`);
+      }
 
-      await fs.writeFile(outputPath, base64, 'base64');
-      console.log(`Wrote ${path.relative(repoRoot, outputPath)}`);
+      await fs.writeFile(outputPath, buffer);
+      console.log(`Wrote ${path.relative(repoRoot, outputPath)} (${buffer.length} bytes)`);
     }
 
     console.log('Done.');
