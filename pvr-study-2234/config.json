@@ -212,7 +212,7 @@
             "type": "website",
             "path": "pvr-study-2234/assets/scroll-test.html",
             "description": "Scroll capability screening",
-            "instruction": "Scroll upward in the frame until you see a number. Then enter the number in the text field below.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
+            "instruction": "Scroll upward in the frame until you see a number. Then enter the number in the text field below.\n\n**Important:** you can only scroll upward toward the top of the frame; scrolling backward (back down) is not allowed.\n\n**Important:** select a scrolling method that feels comfortable (e.g., mousewheel or trackpad), and use the same method throughout the experiment. This is to verify you will be able to scroll through our charts.",
             "instructionLocation": "sidebar",
             "nextButtonText": "Next",
             "style": {
@@ -314,44 +314,44 @@
                 "ratio": 2
             }
         },
-        "tutorial-2-r14": {
+        "tutorial-2-r9": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 14
+                "ratio": 9
             }
         },
-        "tutorial-3-r52": {
+        "tutorial-3-r17": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 52
+                "ratio": 17
             }
         },
-        "tutorial-4-r100": {
+        "tutorial-4-r32": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 100
+                "ratio": 32
             }
         },
-        "tutorial-5-r286": {
+        "tutorial-5-r77": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 286
+                "ratio": 77
             }
         },
-        "tutorial-6-r559": {
+        "tutorial-6-r129": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 559
+                "ratio": 129
             }
         },
         "main-r2": {
@@ -360,22 +360,6 @@
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
                 "ratio": 2
-            }
-        },
-        "main-r4": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 4
-            }
-        },
-        "main-r7": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 7
             }
         },
         "main-r14": {
@@ -410,236 +394,92 @@
                 "ratio": 100
             }
         },
-        "main-r110": {
+        "main-r192": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 110
+                "ratio": 192
             }
         },
-        "main-r121": {
+        "main-r2478": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 121
+                "ratio": 2478
             }
         },
-        "main-r133": {
+        "main-r2822": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 133
+                "ratio": 2822
             }
         },
-        "main-r147": {
+        "main-r3215": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 147
+                "ratio": 3215
             }
         },
-        "main-r161": {
+        "main-r3662": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 161
+                "ratio": 3662
             }
         },
-        "main-r177": {
+        "main-r4171": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 177
+                "ratio": 4171
             }
         },
-        "main-r195": {
+        "main-r4752": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 195
+                "ratio": 4752
             }
         },
-        "main-r215": {
+        "main-r5413": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 215
+                "ratio": 5413
             }
         },
-        "main-r236": {
+        "main-r6166": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 236
+                "ratio": 6166
             }
         },
-        "main-r260": {
+        "main-r7023": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 260
+                "ratio": 7023
             }
         },
-        "main-r286": {
+        "main-r8000": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 286
-            }
-        },
-        "main-r315": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 315
-            }
-        },
-        "main-r346": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 346
-            }
-        },
-        "main-r381": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 381
-            }
-        },
-        "main-r419": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 419
-            }
-        },
-        "main-r462": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 462
-            }
-        },
-        "main-r508": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 508
-            }
-        },
-        "main-r559": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 559
-            }
-        },
-        "main-r615": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 615
-            }
-        },
-        "main-r676": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 676
-            }
-        },
-        "main-r744": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 744
-            }
-        },
-        "main-r819": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 819
-            }
-        },
-        "main-r901": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 901
-            }
-        },
-        "main-r991": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 991
-            }
-        },
-        "main-r1091": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 1091
-            }
-        },
-        "main-r1200": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 1200
-            }
-        },
-        "main-r1321": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 1321
-            }
-        },
-        "main-r1453": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 1453
-            }
-        },
-        "main-r1599": {
-            "baseComponent": "bar-chart",
-            "description": "Main study trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 1599
+                "ratio": 8000
             }
         }
     },
@@ -710,12 +550,12 @@
                 "order": "fixed",
                 "components": [
                     "tutorial-1-r2",
-                    "tutorial-2-r14",
-                    "tutorial-3-r52",
+                    "tutorial-2-r9",
+                    "tutorial-3-r17",
                     "transition-scroll",
-                    "tutorial-4-r100",
-                    "tutorial-5-r286",
-                    "tutorial-6-r559"
+                    "tutorial-4-r32",
+                    "tutorial-5-r77",
+                    "tutorial-6-r129"
                 ]
             },
             "transition-to-main",
@@ -723,41 +563,21 @@
                 "order": "random",
                 "components": [
                     "main-r2",
-                    "main-r4",
-                    "main-r7",
                     "main-r14",
                     "main-r27",
                     "main-r52",
                     "main-r100",
-                    "main-r110",
-                    "main-r121",
-                    "main-r133",
-                    "main-r147",
-                    "main-r161",
-                    "main-r177",
-                    "main-r195",
-                    "main-r215",
-                    "main-r236",
-                    "main-r260",
-                    "main-r286",
-                    "main-r315",
-                    "main-r346",
-                    "main-r381",
-                    "main-r419",
-                    "main-r462",
-                    "main-r508",
-                    "main-r559",
-                    "main-r615",
-                    "main-r676",
-                    "main-r744",
-                    "main-r819",
-                    "main-r901",
-                    "main-r991",
-                    "main-r1091",
-                    "main-r1200",
-                    "main-r1321",
-                    "main-r1453",
-                    "main-r1599"
+                    "main-r192",
+                    "main-r2478",
+                    "main-r2822",
+                    "main-r3215",
+                    "main-r3662",
+                    "main-r4171",
+                    "main-r4752",
+                    "main-r5413",
+                    "main-r6166",
+                    "main-r7023",
+                    "main-r8000"
                 ]
             },
             "post-study-feedback",
