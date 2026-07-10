@@ -4,9 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const MAIN_RATIOS = [14, 27, 52, 100, 192, 2478, 2822, 3215, 3662, 4171, 4752, 5413, 6166, 7023, 8000];
-
-const TUTORIAL_RATIOS = [2, 9, 17, 32, 77, 129];
+import { MAIN_RATIOS, TUTORIAL_RATIOS } from './ratios-2234.mjs';
 
 const MAIN_INSTRUCTION = 'Estimate how many times taller the taller bar is compared to the shorter bar. <span style="color:red"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>';
 const TUTORIAL_INSTRUCTION = MAIN_INSTRUCTION;

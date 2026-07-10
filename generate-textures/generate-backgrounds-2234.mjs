@@ -7,14 +7,14 @@ import { fileURLToPath } from 'node:url';
 
 import { chromium } from '@playwright/test';
 
+import { MAIN_RATIOS, TUTORIAL_RATIOS } from './ratios-2234.mjs';
+
 const HOST = '127.0.0.1';
 const VIEWPORT_WIDTH = 500;
 const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
 const SHORT_BAR_HEIGHT = 23;
 
-const MAIN_RATIOS = [2, 14, 27, 52, 100, 192, 2478, 2822, 3215, 3662, 4171, 4752, 5413, 6166, 7023, 8000];
-const TUTORIAL_RATIOS = [2, 9, 17, 32, 77, 129];
 const RATIOS = [...new Set([...MAIN_RATIOS, ...TUTORIAL_RATIOS])].sort((a, b) => a - b);
 
 // Browsers cannot allocate canvases for very tall charts; generate up to this height
