@@ -292,7 +292,10 @@
       };
 
       const postAnswer = (answerValue) => {
-        feedback.textContent = `The true ratio is ${correctAnswer}.`;
+        const differsFromCorrect = answerValue !== correctAnswer;
+        feedback.textContent = differsFromCorrect
+          ? `The true ratio is ${correctAnswer}. Your response is different but it's OK.`
+          : `The true ratio is ${correctAnswer}.`;
         finalizeActiveScrollBout();
         Revisit.postAnswers({
           [taskID]: answerValue,
