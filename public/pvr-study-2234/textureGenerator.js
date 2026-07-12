@@ -3,12 +3,12 @@
 
 const TEXTURE_DEFAULTS = {
   seed: 7,
-  baseScaleX: 0.0001,
-  baseScaleY: 0.0001,
+  baseScaleX: 0.0008,
+  baseScaleY: 0.0012,
   octaves: 8,
   lacunarity: 2.0,
   persistence: 1,
-  warpStrength: 8,
+  warpStrength: 6,
   warpScaleX: 0.1,
   warpScaleY: 0.1,
   contrast: 0.72,

@@ -14,7 +14,13 @@ const VIEWPORT_WIDTH = 500;
 const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
 const SHORT_BAR_HEIGHT = 23;
+const SCROLL_TEST_HEIGHT = 4000;
 
+<<<<<<< Updated upstream
+=======
+const MAIN_RATIOS = [3, 4, 7, 10, 15, 22, 33, 49, 74, 110, 160, 250, 370, 550, 810, 1200, 1800, 2700, 4000, 6000];
+const TUTORIAL_RATIOS = [2, 13, 66, 95];
+>>>>>>> Stashed changes
 const RATIOS = [...new Set([...MAIN_RATIOS, ...TUTORIAL_RATIOS])].sort((a, b) => a - b);
 
 // Browsers cannot allocate canvases for very tall charts; generate up to this height
@@ -138,10 +144,33 @@ async function closeServer(server) {
   });
 }
 
+async function writeBackgroundPng(page, outputPath, chartHeight) {
+  const generationHeight = getGenerationHeight(chartHeight);
+  const label = path.basename(outputPath);
+
+  console.log(
+    `Generating ${label} (chartHeight=${chartHeight}, generationHeight=${generationHeight})...`,
+  );
+  const dataUrl = await generateBackgroundDataUrl(page, generationHeight, chartHeight);
+  if (!dataUrl.startsWith('data:image/png;base64,')) {
+    throw new Error(`Unexpected image data for ${label}`);
+  }
+  const base64 = dataUrl.replace(/^data:image\/png;base64,/, '');
+  const buffer = Buffer.from(base64, 'base64');
+  if (buffer.length < 1000 || buffer[0] !== 0x89) {
+    throw new Error(`Invalid PNG output for ${label} (${buffer.length} bytes)`);
+  }
+
+  await fs.writeFile(outputPath, buffer);
+  console.log(`Wrote ${path.relative(repoRoot, outputPath)} (${buffer.length} bytes)`);
+}
+
 async function main() {
   await fs.mkdir(outputDir, { recursive: true });
 
-  const cliRatios = process.argv.slice(2).map(Number).filter((n) => Number.isFinite(n) && n > 0);
+  const cliArgs = process.argv.slice(2);
+  const generateScrollTestOnly = cliArgs.includes('scroll-test');
+  const cliRatios = cliArgs.map(Number).filter((n) => Number.isFinite(n) && n > 0);
   const ratiosToGenerate = cliRatios.length > 0 ? cliRatios : RATIOS;
 
   const { origin, server } = await startStaticServer();
@@ -153,26 +182,26 @@ async function main() {
     const page = await browser.newPage();
     await page.goto(origin, { waitUntil: 'load' });
 
-    for (const ratio of ratiosToGenerate) {
-      const chartHeight = getChartHeight(ratio);
-      const generationHeight = getGenerationHeight(chartHeight);
-      const outputPath = path.join(outputDir, `background-r${ratio}.png`);
-
-      console.log(
-        `Generating background for ratio=${ratio} (chartHeight=${chartHeight}, generationHeight=${generationHeight})...`,
+    if (generateScrollTestOnly) {
+      await writeBackgroundPng(
+        page,
+        path.join(outputDir, 'background-scroll-test.png'),
+        SCROLL_TEST_HEIGHT,
       );
-      const dataUrl = await generateBackgroundDataUrl(page, generationHeight, chartHeight);
-      if (!dataUrl.startsWith('data:image/png;base64,')) {
-        throw new Error(`Unexpected image data for ratio=${ratio}`);
-      }
-      const base64 = dataUrl.replace(/^data:image\/png;base64,/, '');
-      const buffer = Buffer.from(base64, 'base64');
-      if (buffer.length < 1000 || buffer[0] !== 0x89) {
-        throw new Error(`Invalid PNG output for ratio=${ratio} (${buffer.length} bytes)`);
+    } else {
+      for (const ratio of ratiosToGenerate) {
+        const chartHeight = getChartHeight(ratio);
+        const outputPath = path.join(outputDir, `background-r${ratio}.png`);
+        await writeBackgroundPng(page, outputPath, chartHeight);
       }
 
-      await fs.writeFile(outputPath, buffer);
-      console.log(`Wrote ${path.relative(repoRoot, outputPath)} (${buffer.length} bytes)`);
+      if (cliRatios.length === 0) {
+        await writeBackgroundPng(
+          page,
+          path.join(outputDir, 'background-scroll-test.png'),
+          SCROLL_TEST_HEIGHT,
+        );
+      }
     }
 
     console.log('Done.');

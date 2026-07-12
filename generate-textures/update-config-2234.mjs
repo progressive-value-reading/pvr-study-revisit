@@ -4,7 +4,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+<<<<<<< Updated upstream
 import { MAIN_RATIOS, TUTORIAL_RATIOS } from './ratios-2234.mjs';
+=======
+const MAIN_RATIOS = [3, 4, 7, 10, 15, 22, 33, 49, 74, 110, 160, 250, 370, 550, 810, 1200, 1800, 2700, 4000, 6000];
+
+const TUTORIAL_RATIOS = [2, 13, 66, 95];
+const NON_SCROLL_TUTORIAL_COUNT = 2;
+>>>>>>> Stashed changes
 
 const MAIN_INSTRUCTION = 'Estimate how many times taller the taller bar is compared to the shorter bar. <span style="color:red"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>';
 const TUTORIAL_INSTRUCTION = MAIN_INSTRUCTION;
@@ -69,13 +76,9 @@ if (tutorialBlockIndex === -1 || mainBlockIndex === -1) {
 sequenceComponents[tutorialBlockIndex] = {
   order: 'fixed',
   components: [
-    tutorialComponents[0],
-    tutorialComponents[1],
-    tutorialComponents[2],
+    ...tutorialComponents.slice(0, NON_SCROLL_TUTORIAL_COUNT),
     'transition-scroll',
-    tutorialComponents[3],
-    tutorialComponents[4],
-    tutorialComponents[5],
+    ...tutorialComponents.slice(NON_SCROLL_TUTORIAL_COUNT),
   ],
 };
 
