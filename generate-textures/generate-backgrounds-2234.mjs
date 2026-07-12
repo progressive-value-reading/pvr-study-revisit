@@ -15,12 +15,6 @@ const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
 const SHORT_BAR_HEIGHT = 23;
 const SCROLL_TEST_HEIGHT = 4000;
-
-<<<<<<< Updated upstream
-=======
-const MAIN_RATIOS = [3, 4, 7, 10, 15, 22, 33, 49, 74, 110, 160, 250, 370, 550, 810, 1200, 1800, 2700, 4000, 6000];
-const TUTORIAL_RATIOS = [2, 13, 66, 95];
->>>>>>> Stashed changes
 const RATIOS = [...new Set([...MAIN_RATIOS, ...TUTORIAL_RATIOS])].sort((a, b) => a - b);
 
 // Browsers cannot allocate canvases for very tall charts; generate up to this height

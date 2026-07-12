@@ -307,78 +307,38 @@
                 }
             ]
         },
-        "tutorial-1-r3": {
+        "tutorial-1-r2": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 3
+                "ratio": 2
             }
         },
-<<<<<<< Updated upstream
-        "tutorial-2-r6": {
-=======
         "tutorial-2-r13": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 6
-            }
-        },
-        "tutorial-3-r12": {
-=======
                 "ratio": 13
             }
         },
         "tutorial-3-r66": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 12
-            }
-        },
-        "tutorial-4-r24": {
-=======
                 "ratio": 66
             }
         },
         "tutorial-4-r95": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 24
-            }
-        },
-        "tutorial-5-r49": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 49
-            }
-        },
-        "tutorial-6-r98": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 98
-            }
-        },
-=======
                 "ratio": 95
             }
         },
->>>>>>> Stashed changes
         "main-r3": {
             "baseComponent": "bar-chart",
             "description": "Main study trial",
@@ -387,213 +347,115 @@
                 "ratio": 3
             }
         },
-<<<<<<< Updated upstream
-        "main-r6": {
-=======
         "main-r4": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 6
-            }
-        },
-        "main-r12": {
-=======
                 "ratio": 4
             }
         },
         "main-r7": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 12
-            }
-        },
-        "main-r24": {
-=======
                 "ratio": 7
             }
         },
         "main-r10": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 24
-            }
-        },
-        "main-r49": {
-=======
                 "ratio": 10
             }
         },
         "main-r15": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 49
-            }
-        },
-        "main-r98": {
-=======
                 "ratio": 15
             }
         },
         "main-r22": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 98
-            }
-        },
-        "main-r152": {
-=======
                 "ratio": 22
             }
         },
         "main-r33": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 152
-            }
-        },
-        "main-r236": {
-=======
                 "ratio": 33
             }
         },
         "main-r49": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 236
-            }
-        },
-        "main-r365": {
-=======
                 "ratio": 49
             }
         },
         "main-r74": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 365
-            }
-        },
-        "main-r564": {
-=======
                 "ratio": 74
             }
         },
         "main-r110": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 564
-            }
-        },
-        "main-r873": {
-=======
                 "ratio": 110
             }
         },
         "main-r160": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 873
-            }
-        },
-        "main-r1350": {
-=======
                 "ratio": 160
             }
         },
         "main-r250": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 1350
-            }
-        },
-        "main-r2089": {
-=======
                 "ratio": 250
             }
         },
         "main-r370": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 2089
-            }
-        },
-        "main-r3232": {
-=======
                 "ratio": 370
             }
         },
         "main-r550": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 3232
-            }
-        },
-        "main-r5000": {
-=======
                 "ratio": 550
             }
         },
         "main-r810": {
->>>>>>> Stashed changes
             "baseComponent": "bar-chart",
             "description": "Main study trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-<<<<<<< Updated upstream
-                "ratio": 5000
-=======
                 "ratio": 810
             }
         },
@@ -635,7 +497,6 @@
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
                 "ratio": 6000
->>>>>>> Stashed changes
             }
         }
     },
@@ -705,21 +566,11 @@
             {
                 "order": "fixed",
                 "components": [
-<<<<<<< Updated upstream
-                    "tutorial-1-r3",
-                    "tutorial-2-r6",
-                    "tutorial-3-r12",
-                    "transition-scroll",
-                    "tutorial-4-r24",
-                    "tutorial-5-r49",
-                    "tutorial-6-r98"
-=======
                     "tutorial-1-r2",
                     "tutorial-2-r13",
                     "transition-scroll",
                     "tutorial-3-r66",
                     "tutorial-4-r95"
->>>>>>> Stashed changes
                 ]
             },
             "transition-to-main",
@@ -727,22 +578,6 @@
                 "order": "random",
                 "components": [
                     "main-r3",
-<<<<<<< Updated upstream
-                    "main-r6",
-                    "main-r12",
-                    "main-r24",
-                    "main-r49",
-                    "main-r98",
-                    "main-r152",
-                    "main-r236",
-                    "main-r365",
-                    "main-r564",
-                    "main-r873",
-                    "main-r1350",
-                    "main-r2089",
-                    "main-r3232",
-                    "main-r5000"
-=======
                     "main-r4",
                     "main-r7",
                     "main-r10",
@@ -762,7 +597,6 @@
                     "main-r2700",
                     "main-r4000",
                     "main-r6000"
->>>>>>> Stashed changes
                 ]
             },
             "post-study-feedback",
