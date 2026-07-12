@@ -24,6 +24,7 @@
         "withSidebar": true,
         "showTitle": false,
         "windowEventDebounceTime": 100,
+        "numSequences": 50,
         "studyEndMsg": "Thank you for taking part in this study.\n\nYou should be redirected to Prolific in 5 seconds to confirm your task completion. Otherwise, please click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=C3IEH2C1)\n\n**Completion code:** C3IEH2C1",
         "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C3IEH2C1",
         "studyEndAutoRedirectDelay": 5000,
