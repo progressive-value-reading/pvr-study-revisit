@@ -20,6 +20,11 @@
       border: 1px solid #cccccc;
       box-sizing: border-box;
       margin: 0 auto;
+      visibility: hidden;
+    }
+
+    #viewport.ready {
+      visibility: visible;
     }
 
     #viewport:focus {
@@ -88,7 +93,9 @@
     </div>
   </div>
   <script>
-    window.addEventListener('load', function () {
+    const BACKGROUND_URL = 'background-scroll-test.png';
+
+    function initScrollTest() {
       const viewport = document.getElementById('viewport');
       const initialScrollTop = viewport.scrollHeight - viewport.clientHeight;
       let minScrollTopReached = initialScrollTop;
@@ -134,8 +141,28 @@
       viewport.scrollTop = initialScrollTop;
       minScrollTopReached = initialScrollTop;
       viewport.onscroll = enforceOneWayScroll;
+      viewport.classList.add('ready');
       viewport.focus({ preventScroll: true });
-    });
+    }
+
+    function waitForBackgroundImage() {
+      const image = new Image();
+      image.src = BACKGROUND_URL;
+
+      if (image.complete) {
+        initScrollTest();
+        return;
+      }
+
+      image.addEventListener('load', initScrollTest, { once: true });
+      image.addEventListener('error', initScrollTest, { once: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', waitForBackgroundImage, { once: true });
+    } else {
+      waitForBackgroundImage();
+    }
   </script>
 </body>
 </html>
