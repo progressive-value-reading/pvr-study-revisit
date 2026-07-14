@@ -127,14 +127,16 @@
       const taskID = 'barChart';
       const viewportHeight = 500;
       const viewportWidth = 500;
-      const topMargin = 10;
-      const SHORT_BAR_HEIGHT = 23;
+      const topMargin =  10;
+      const scaleFactor = Number(data.scaleFactor ?? 1);
       const tallToShortRatio = Number(data.ratio);
 
+      const clampedScaleFactor = Number.isFinite(scaleFactor) && scaleFactor > 0 ? scaleFactor : 1;
       const clampedRatio = Number.isFinite(tallToShortRatio) && tallToShortRatio > 0 ? tallToShortRatio : 2;
 
-      const shortBarHeight = SHORT_BAR_HEIGHT;
-      const tallBarHeight = shortBarHeight * clampedRatio;
+      const drawableHeight = viewportHeight - topMargin;
+      const tallBarHeight = clampedScaleFactor * drawableHeight;
+      const shortBarHeight = tallBarHeight / clampedRatio;
       const chartHeight = Math.max(viewportHeight, tallBarHeight + topMargin);
 
       const viewport = document.getElementById('viewport');
@@ -145,8 +147,9 @@
       const submitAnswer = document.getElementById('submitAnswer');
       const integerAnswer = document.getElementById('integerAnswer');
       const feedback = document.getElementById('feedback');
-      const mustReachTop = chartHeight > viewportHeight;
+      const mustReachTop = clampedScaleFactor > 1;
       const correctAnswer = Math.round(clampedRatio);
+      const backgroundScaleFactor = Math.max(1, Math.min(5, Math.round(clampedScaleFactor)));
       let hasReachedTop = !mustReachTop;
       let isSubmitted = false;
       let wasEditable = false;
@@ -156,7 +159,7 @@
       chartArea.style.height = `${chartHeight}px`;
       shortBar.style.height = `${shortBarHeight}px`;
       tallBar.style.height = `${tallBarHeight}px`;
-      chartArea.style.backgroundImage = `url("background-r${clampedRatio}.png")`;
+      chartArea.style.backgroundImage = `url("./background-s${backgroundScaleFactor}.png")`;
       chartArea.style.backgroundRepeat = 'no-repeat';
       chartArea.style.backgroundSize = `${viewportWidth}px ${chartHeight}px`;
 
@@ -175,21 +178,8 @@
       let lastScrollTop = null;
       let lastDirection = null;
       let activeScrollBout = null;
-      const initialScrollTop = Math.max(0, chartHeight - viewportHeight);
-      let minScrollTopReached = initialScrollTop;
 
       const isAtTop = () => viewport.scrollTop <= 1;
-
-      const enforceOneWayScroll = () => {
-        if (!mustReachTop) {
-          return;
-        }
-        if (viewport.scrollTop > minScrollTopReached) {
-          viewport.scrollTop = minScrollTopReached;
-        } else if (viewport.scrollTop < minScrollTopReached) {
-          minScrollTopReached = viewport.scrollTop;
-        }
-      };
 
       const finalizeActiveScrollBout = () => {
         if (!activeScrollBout) {
@@ -292,10 +282,7 @@
       };
 
       const postAnswer = (answerValue) => {
-        const differsFromCorrect = answerValue !== correctAnswer;
-        feedback.textContent = differsFromCorrect
-          ? `The true ratio is ${correctAnswer}. Your response is different but it's OK.`
-          : `The true ratio is ${correctAnswer}.`;
+        feedback.textContent = `The true ratio is ${correctAnswer}.`;
         finalizeActiveScrollBout();
         Revisit.postAnswers({
           [taskID]: answerValue,
@@ -368,10 +355,6 @@
 
       document.addEventListener('keydown', handleDocumentKeyDown);
       const blockKeyboardScrollKeys = (event) => {
-        if (mustReachTop && (event.key === 'ArrowDown' || event.key === 'PageDown')) {
-          event.preventDefault();
-          return;
-        }
         if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Home' || event.key === 'End') {
           event.preventDefault();
           return;
@@ -391,23 +374,16 @@
       viewport.addEventListener('mousedown', blockMiddleMouseScroll, true);
       viewport.addEventListener('auxclick', blockMiddleMouseScroll, true);
       viewport.addEventListener('pointerdown', blockMiddleMouseScroll, true);
-      viewport.addEventListener('wheel', (event) => {
-        if (mustReachTop && event.deltaY > 0) {
-          event.preventDefault();
-        }
-      }, { passive: false });
       integerAnswer.addEventListener('wheel', () => {
         integerAnswer.blur();
       });
 
       integerAnswer.oninput = updateScrollState;
       viewport.tabIndex = -1;
-      viewport.scrollTop = initialScrollTop;
-      minScrollTopReached = initialScrollTop;
+      viewport.scrollTop = Math.max(0, chartHeight - viewportHeight);
       lastScrollTop = viewport.scrollTop;
       viewport.focus({ preventScroll: true });
       viewport.onscroll = () => {
-        enforceOneWayScroll();
         trackScroll();
         updateScrollState();
       };

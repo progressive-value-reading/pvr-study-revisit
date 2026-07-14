@@ -5,14 +5,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { MAIN_RATIOS, TUTORIAL_RATIOS } from './ratios-2234.mjs';
+import { MAIN_RATIOS } from './ratios-2234.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const assetsDir = path.join(scriptDir, '..', 'public', 'pvr-study-2234', 'assets');
 
 const keptFiles = new Set([
   ...MAIN_RATIOS.map((ratio) => `background-r${ratio}.png`),
-  ...TUTORIAL_RATIOS.map((ratio) => `background-r${ratio}.png`),
+  'background-s1.png',
+  'background-s2.png',
   'background-scroll-test.png',
 ]);
 

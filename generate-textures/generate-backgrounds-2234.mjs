@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 import { chromium } from '@playwright/test';
 
-import { MAIN_RATIOS, TUTORIAL_RATIOS } from './ratios-2234.mjs';
+import { MAIN_RATIOS } from './ratios-2234.mjs';
 
 const HOST = '127.0.0.1';
 const VIEWPORT_WIDTH = 500;
@@ -15,7 +15,7 @@ const VIEWPORT_HEIGHT = 500;
 const TOP_MARGIN = 10;
 const SHORT_BAR_HEIGHT = 23;
 const SCROLL_TEST_HEIGHT = 4000;
-const RATIOS = [...new Set([...MAIN_RATIOS, ...TUTORIAL_RATIOS])].sort((a, b) => a - b);
+const RATIOS = [...MAIN_RATIOS].sort((a, b) => a - b);
 
 // Browsers cannot allocate canvases for very tall charts; generate up to this height
 // and stretch to full chart height via CSS background-size in the bar chart HTML.

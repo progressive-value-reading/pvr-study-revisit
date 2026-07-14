@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { MAIN_RATIOS, NON_SCROLL_TUTORIAL_COUNT, TUTORIAL_RATIOS } from './ratios-2234.mjs';
+import { MAIN_RATIOS, NON_SCROLL_TUTORIAL_COUNT, TUTORIAL_TRIALS } from './ratios-2234.mjs';
 
 const MAIN_INSTRUCTION = 'Estimate how many times taller the taller bar is compared to the shorter bar. <span style="color:red"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>';
 const TUTORIAL_INSTRUCTION = MAIN_INSTRUCTION;
@@ -21,12 +21,12 @@ function makeMainTrial(ratio) {
   };
 }
 
-function makeTutorialTrial(index, ratio) {
+function makeTutorialTrial({ scaleFactor, ratio }) {
   return {
     baseComponent: 'bar-chart-tutorial',
     description: 'Tutorial trial',
     instruction: TUTORIAL_INSTRUCTION,
-    parameters: { ratio },
+    parameters: { scaleFactor, ratio },
   };
 }
 
@@ -41,8 +41,8 @@ for (const key of preservedKeys) {
   newComponents[key] = config.components[key];
 }
 
-TUTORIAL_RATIOS.forEach((ratio, index) => {
-  newComponents[`tutorial-${index + 1}-r${ratio}`] = makeTutorialTrial(index + 1, ratio);
+TUTORIAL_TRIALS.forEach((trial) => {
+  newComponents[trial.id] = makeTutorialTrial(trial);
 });
 
 MAIN_RATIOS.forEach((ratio) => {
@@ -51,7 +51,7 @@ MAIN_RATIOS.forEach((ratio) => {
 
 config.components = newComponents;
 
-const tutorialComponents = TUTORIAL_RATIOS.map((ratio, index) => `tutorial-${index + 1}-r${ratio}`);
+const tutorialComponents = TUTORIAL_TRIALS.map((trial) => trial.id);
 const mainComponents = MAIN_RATIOS.map((ratio) => `main-r${ratio}`);
 
 const sequenceComponents = config.sequence.components;
