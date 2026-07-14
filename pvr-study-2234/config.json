@@ -308,52 +308,58 @@
                 }
             ]
         },
-        "tutorial-1-r2": {
+        "tutorial-1-s1-r2": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
+                "scaleFactor": 1,
                 "ratio": 2
             }
         },
-        "tutorial-2-r5": {
+        "tutorial-2-s1-r22": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 5
+                "scaleFactor": 1,
+                "ratio": 22
             }
         },
-        "tutorial-3-r13": {
+        "tutorial-3-s1-r95": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 13
-            }
-        },
-        "tutorial-4-r66": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 66
-            }
-        },
-        "tutorial-5-r90": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 90
-            }
-        },
-        "tutorial-6-r95": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
+                "scaleFactor": 1,
                 "ratio": 95
+            }
+        },
+        "tutorial-4-s2-r2": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 2
+            }
+        },
+        "tutorial-5-s2-r19": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 19
+            }
+        },
+        "tutorial-6-s2-r90": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "scaleFactor": 2,
+                "ratio": 90
             }
         },
         "main-r3": {
@@ -583,13 +589,13 @@
             {
                 "order": "fixed",
                 "components": [
-                    "tutorial-1-r2",
-                    "tutorial-2-r5",
-                    "tutorial-3-r13",
+                    "tutorial-1-s1-r2",
+                    "tutorial-2-s1-r22",
+                    "tutorial-3-s1-r95",
                     "transition-scroll",
-                    "tutorial-4-r66",
-                    "tutorial-5-r90",
-                    "tutorial-6-r95"
+                    "tutorial-4-s2-r2",
+                    "tutorial-5-s2-r19",
+                    "tutorial-6-s2-r90"
                 ]
             },
             "transition-to-main",
