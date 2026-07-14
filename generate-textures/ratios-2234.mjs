@@ -5,7 +5,7 @@ export const MAIN_RATIOS = [
 ];
 
 /** Fixed-order tutorial trials (separate from main ratio set). */
-export const TUTORIAL_RATIOS = [2, 13, 66, 95];
+export const TUTORIAL_RATIOS = [2, 5, 13, 66, 90, 95];
 
 /** Tutorial trials before the scroll-transition step. */
-export const NON_SCROLL_TUTORIAL_COUNT = 2;
+export const NON_SCROLL_TUTORIAL_COUNT = 3;

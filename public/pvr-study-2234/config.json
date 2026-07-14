@@ -25,7 +25,7 @@
         "showTitle": false,
         "windowEventDebounceTime": 100,
         "numSequences": 50,
-        "studyEndMsg": "Thank you for taking part in this study.\n\nYou should be redirected to Prolific in 5 seconds to confirm your task completion. Otherwise, please click the link below or enter the completion code on Prolific:\n\n[Return to Prolific to confirm your submission](https://app.prolific.com/submissions/complete?cc=C3IEH2C1)\n\n**Completion code:** C3IEH2C1",
+        "studyEndMsg": "Thank you for taking part in this study.\n\nYou will be redirected to Prolific in 5 seconds to confirm your task completion.",
         "studyEndAutoRedirectURL": "https://app.prolific.com/submissions/complete?cc=C3IEH2C1",
         "studyEndAutoRedirectDelay": 5000,
         "urlParticipantIdParam": "PROLIFIC_PID"
@@ -176,8 +176,8 @@
             "nextOnEnter": true
         },
         "non-qualified": {
-            "type": "markdown",
-            "path": "pvr-study-2234/assets/non-qualified.md",
+            "type": "website",
+            "path": "pvr-study-2234/assets/non-qualified.html",
             "nextButtonText": "Finish",
             "response": [
                 {
@@ -316,7 +316,15 @@
                 "ratio": 2
             }
         },
-        "tutorial-2-r13": {
+        "tutorial-2-r5": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 5
+            }
+        },
+        "tutorial-3-r13": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -324,7 +332,7 @@
                 "ratio": 13
             }
         },
-        "tutorial-3-r66": {
+        "tutorial-4-r66": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -332,7 +340,15 @@
                 "ratio": 66
             }
         },
-        "tutorial-4-r95": {
+        "tutorial-5-r90": {
+            "baseComponent": "bar-chart-tutorial",
+            "description": "Tutorial trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 90
+            }
+        },
+        "tutorial-6-r95": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -568,10 +584,12 @@
                 "order": "fixed",
                 "components": [
                     "tutorial-1-r2",
-                    "tutorial-2-r13",
+                    "tutorial-2-r5",
+                    "tutorial-3-r13",
                     "transition-scroll",
-                    "tutorial-3-r66",
-                    "tutorial-4-r95"
+                    "tutorial-4-r66",
+                    "tutorial-5-r90",
+                    "tutorial-6-r95"
                 ]
             },
             "transition-to-main",
