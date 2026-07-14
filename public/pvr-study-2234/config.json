@@ -317,13 +317,13 @@
                 "ratio": 2
             }
         },
-        "tutorial-2-s1-r22": {
+        "tutorial-2-s1-r13": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
                 "scaleFactor": 1,
-                "ratio": 22
+                "ratio": 13
             }
         },
         "tutorial-3-s1-r95": {
@@ -590,7 +590,7 @@
                 "order": "fixed",
                 "components": [
                     "tutorial-1-s1-r2",
-                    "tutorial-2-s1-r22",
+                    "tutorial-2-s1-r13",
                     "tutorial-3-s1-r95",
                     "transition-scroll",
                     "tutorial-4-s2-r2",

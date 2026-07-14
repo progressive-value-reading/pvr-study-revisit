@@ -7,7 +7,7 @@ export const MAIN_RATIOS = [
 /** Fixed-order tutorial trials matching pvr-study-1 (uses background-s1/s2 from study 1). */
 export const TUTORIAL_TRIALS = [
   { id: 'tutorial-1-s1-r2', scaleFactor: 1, ratio: 2 },
-  { id: 'tutorial-2-s1-r22', scaleFactor: 1, ratio: 22 },
+  { id: 'tutorial-2-s1-r13', scaleFactor: 1, ratio: 13 },
   { id: 'tutorial-3-s1-r95', scaleFactor: 1, ratio: 95 },
   { id: 'tutorial-4-s2-r2', scaleFactor: 2, ratio: 2 },
   { id: 'tutorial-5-s2-r19', scaleFactor: 2, ratio: 19 },
