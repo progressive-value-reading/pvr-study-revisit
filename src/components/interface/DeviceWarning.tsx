@@ -3,12 +3,9 @@ import {
   Card,
   Flex,
 } from '@mantine/core';
-import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router';
 import {
   IconAlertTriangle, IconBrowser, IconDevices, IconHandClick, IconDeviceDesktop,
 } from '@tabler/icons-react';
-import { useStorageEngine } from '../../storage/storageEngineHooks';
 import { useStudyConfig } from '../../store/hooks/useStudyConfig';
 import { useDeviceRules } from '../../utils/useDeviceRules';
 
@@ -18,20 +15,6 @@ export function DeviceWarning({
   developmentModeEnabled?: boolean
 }) {
   const studyConfig = useStudyConfig();
-  const { storageEngine } = useStorageEngine();
-  const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState(60);
-  const [isRejected, setIsRejected] = useState(false);
-  const countdownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const storageEngineRef = useRef(storageEngine);
-  const navigateRef = useRef(navigate);
-
-  useEffect(() => {
-    storageEngineRef.current = storageEngine;
-  }, [storageEngine]);
-  useEffect(() => {
-    navigateRef.current = navigate;
-  }, [navigate]);
 
   const {
     browsers, devices, inputs, display,
@@ -67,60 +50,8 @@ export function DeviceWarning({
     (display?.minWidth !== undefined && currentDisplay.width < display.minWidth)
     || (display?.minHeight !== undefined && currentDisplay.height < display.minHeight)
   );
-  const shouldRunDisplayCountdown = !developmentModeEnabled && !isRejected && isDisplayRequirementNotMet;
 
-  useEffect(() => {
-    if (shouldRunDisplayCountdown) {
-      setTimeLeft(60);
-      if (countdownIntervalRef.current) {
-        clearInterval(countdownIntervalRef.current);
-      }
-
-      countdownIntervalRef.current = setInterval(() => {
-        setTimeLeft((currentTime) => {
-          if (currentTime <= 1) {
-            if (countdownIntervalRef.current) {
-              clearInterval(countdownIntervalRef.current);
-              countdownIntervalRef.current = null;
-            }
-
-            if (storageEngineRef.current) {
-              setIsRejected(true);
-              storageEngineRef.current.rejectCurrentParticipant('Screen resolution requirements not met')
-                .catch(() => {
-                  console.error('Failed to reject participant who failed display requirements');
-                })
-                .finally(() => {
-                  navigateRef.current(`./../__trainingFailed${window.location.search}`);
-                });
-            } else {
-              setIsRejected(true);
-              navigateRef.current(`./../__trainingFailed${window.location.search}`);
-            }
-
-            return 0;
-          }
-
-          return currentTime - 1;
-        });
-      }, 1000);
-    } else {
-      setTimeLeft(60);
-      if (countdownIntervalRef.current) {
-        clearInterval(countdownIntervalRef.current);
-        countdownIntervalRef.current = null;
-      }
-    }
-
-    return () => {
-      if (countdownIntervalRef.current) {
-        clearInterval(countdownIntervalRef.current);
-        countdownIntervalRef.current = null;
-      }
-    };
-  }, [shouldRunDisplayCountdown]);
-
-  if (developmentModeEnabled || (!isRejected && !hasAnyViolation)) {
+  if (developmentModeEnabled || !hasAnyViolation) {
     return null;
   }
 
@@ -129,19 +60,11 @@ export function DeviceWarning({
       <Stack align="center" justify="center">
         <IconAlertTriangle size={64} color="orange" />
         <Title order={3}>{warningTitle}</Title>
-        {isRejected && (
-          <Text size="md" ta="center" c="red">
-            You have been rejected because your display size stayed outside
-            the minimum requirements for 60 seconds.
-          </Text>
-        )}
-        {shouldRunDisplayCountdown && (
-          <Text size="md" ta="center" c="red">
-            Please resize your browser window to the allowed range within
-            {' '}
-            {timeLeft}
-            {' '}
-            seconds or you will not be able to continue the study.
+        {isDisplayRequirementNotMet && (
+          <Text size="md" ta="center" maw={560}>
+            Your display does not meet the minimum size for this study. Resize your browser
+            window or switch to a supported device to continue. You cannot proceed until
+            the display requirement is met.
           </Text>
         )}
         <Flex wrap="wrap" justify="center">
@@ -308,11 +231,20 @@ export function DeviceWarning({
             </Card>
           )}
         </Flex>
-        <Text size="md" ta="center">
-          Please reopen the study link with a supported device.
-          <br />
-          Thank you for your understanding!
-        </Text>
+        {isDisplayRequirementNotMet ? (
+          <Text size="md" ta="center" maw={560}>
+            If you have already opened this study on another device with a suitable display,
+            you may close this browser window and continue there. Closing this window will not
+            affect your Prolific submission as long as you complete the study from the other
+            window before the study time limit.
+          </Text>
+        ) : (
+          <Text size="md" ta="center">
+            Please reopen the study link with a supported device.
+            <br />
+            Thank you for your understanding!
+          </Text>
+        )}
       </Stack>
     </Modal>
   );

@@ -84,18 +84,6 @@ vi.mock('../../utils/useDeviceRules', () => ({
   useDeviceRules: () => mockedDeviceRules,
 }));
 
-vi.mock('react-router', () => ({
-  useNavigate: () => vi.fn(),
-}));
-
-vi.mock('../../storage/storageEngineHooks', () => ({
-  useStorageEngine: () => ({
-    storageEngine: {
-      rejectCurrentParticipant: vi.fn().mockResolvedValue(undefined),
-    },
-  }),
-}));
-
 describe('DeviceWarning', () => {
   beforeEach(() => {
     mockedStudyRules = {};
@@ -116,7 +104,7 @@ describe('DeviceWarning', () => {
     expect(html).toBe('');
   });
 
-  test('shows display countdown warning when current display is below min requirements', () => {
+  test('shows blocking display guidance when current display is below min requirements', () => {
     mockedStudyRules = {
       display: {
         minWidth: 1200,
@@ -130,12 +118,14 @@ describe('DeviceWarning', () => {
     };
 
     const html = renderToStaticMarkup(<DeviceWarning />);
-    expect(html).toContain('Please resize your browser window to the allowed range within');
-    expect(html).toContain('60');
-    expect(html).toContain('seconds or you will not be able to continue the study.');
+    expect(html).toContain('Your display does not meet the minimum size for this study.');
+    expect(html).toContain('You cannot proceed until the display requirement is met.');
+    expect(html).toContain('you may close this browser window and continue there');
+    expect(html).not.toContain('seconds or you will not be able to continue the study.');
+    expect(html).not.toContain('You have been rejected');
   });
 
-  test('does not show countdown warning when display violation is only above max', () => {
+  test('does not show close-window guidance when display violation is only above max', () => {
     mockedStudyRules = {
       display: {
         minWidth: 800,
@@ -151,7 +141,9 @@ describe('DeviceWarning', () => {
     };
 
     const html = renderToStaticMarkup(<DeviceWarning />);
-    expect(html).not.toContain('Please resize your browser window to the allowed range within');
+    expect(html).not.toContain('Your display does not meet the minimum size for this study.');
+    expect(html).not.toContain('you may close this browser window and continue there');
+    expect(html).toContain('Please reopen the study link with a supported device.');
   });
 
   test('shows current detected values inside each failed rule card', () => {
