@@ -251,7 +251,7 @@
                 },
                 {
                     "id": "post-scroll-count-frequency",
-                    "prompt": "We would like to know, <strong>among the trials that required scrolling</strong>, if and how often you counted the number of scrolls you made to estimate. Your honest answer is very important for our analysis. And don't worry. Whether you counted or not, it won't affect your compensation.",
+                    "prompt": "<strong>Among the trials that required scrolling</strong>, how often did you count the number of scrolls you made to estimate? Your honest answer is very important for our analysis. Whether you counted or not, it won't affect your compensation.",
                     "type": "radio",
                     "location": "aboveStimulus",
                     "required": true,
@@ -265,7 +265,7 @@
                 },
                 {
                     "id": "post-estimation-strategy",
-                    "prompt": "Please describe your estimation strategies (e.g., just following intuition and counting the number of scrolls and doing multiplications). If you used multiple strategies, please reveal them all.",
+                    "prompt": "Please describe your estimation strategies. If you used multiple strategies, please describe all of them.",
                     "type": "longText",
                     "location": "aboveStimulus",
                     "required": true
