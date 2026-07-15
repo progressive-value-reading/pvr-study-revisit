@@ -1,4 +1,4 @@
-<div style="max-width: 1600px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
+<div style="max-width: 1000px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
 
 ## Instructions
 
