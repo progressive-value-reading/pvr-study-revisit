@@ -100,20 +100,24 @@
 
       #helperArea {
         margin-top: 8px;
-        min-height: 4.5em;
+        min-height: 3em;
       }
 
       #reviseArea {
-        margin-top: 6px;
-        visibility: hidden;
+        margin: 0 0 6px;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
       }
 
       #reviseHint {
-        margin: 0 0 6px;
+        margin: 0;
       }
 
       #reviseAnswer {
         margin: 0;
+        flex-shrink: 0;
       }
 
     </style>
@@ -130,14 +134,14 @@
       <div id="controls">
         <label for="integerAnswer">Type your estimate (a whole number):</label>
         <input id="integerAnswer" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
-        <button id="submitAnswer" type="button">Submit answer</button>
+        <button id="submitAnswer" type="button">Submits</button>
       </div>
       <div id="helperArea">
-        <div id="submitHint">Press Enter/Return to submit and press it again to move to the next chart.</div>
         <div id="reviseArea">
-          <div id="reviseHint">If you made a typo, you can revise your answer before moving on.</div>
-          <button id="reviseAnswer" type="button">Revise answer</button>
+          <div id="reviseHint">If you made a typo, click the button to correct it before moving on.</div>
+          <button id="reviseAnswer" type="button">Revise</button>
         </div>
+        <div id="submitHint">Press Enter/Return to submit your answer.</div>
       </div>
     </div>
   </body>
@@ -302,12 +306,12 @@
         const hasIntegerInput = rawInput !== '' && Number.isInteger(parsed);
         scrollHint.style.display = mustReachTop && !hasReachedTop ? 'block' : 'none';
         integerAnswer.disabled = !canEdit || isSubmitted;
-        submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit answer';
+        submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit';
         submitAnswer.disabled = isSubmitted || !hasIntegerInput || !canEdit;
-        reviseArea.style.visibility = isSubmitted ? 'visible' : 'hidden';
+        reviseArea.style.display = isSubmitted ? 'flex' : 'none';
         submitHint.textContent = isSubmitted
-          ? 'Press Enter/Return to continue to the next chart.'
-          : 'Press Enter/Return to submit and press it again to move to the next chart.';
+          ? 'Otherwise, press Enter/Return to continue to the next chart.'
+          : 'Press Enter/Return to submit your answer.';
         if (canEdit && !wasEditable && !isSubmitted) {
           integerAnswer.focus({ preventScroll: true });
         }
