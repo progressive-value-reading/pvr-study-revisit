@@ -74,13 +74,12 @@ Finally, I acknowledge that I have the possibility of asking additional question
 
 <style>
 #consent ~ .responseBlock-belowStimulus {
-  max-width: 1200px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
   width: 100%;
   box-sizing: border-box;
-  text-align: center;
 }
 </style>
