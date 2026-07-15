@@ -1,3 +1,5 @@
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box;">
+
 <br>
 
 ## <center> CONSENT FORM </center>
@@ -68,4 +70,17 @@ Finally, I acknowledge that I have the possibility of asking additional question
 
 <br>
 
+</div>
 
+<style>
+#consent ~ .responseBlock-belowStimulus {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+</style>

@@ -91,15 +91,34 @@
       }
 
       #submitHint {
-        margin: 8px 0 0;
+        margin: 0;
       }
 
       #submitAnswer {
         margin-left: 6px;
       }
+
+      #helperArea {
+        margin-top: 8px;
+        min-height: 4.5em;
+      }
+
+      #reviseArea {
+        margin-top: 6px;
+        visibility: hidden;
+      }
+
+      #reviseHint {
+        margin: 0 0 6px;
+      }
+
+      #reviseAnswer {
+        margin: 0;
+      }
       
       #feedback {
         margin: 8px 0 0;
+        min-height: 1.5em;
         color: #b41818;
       }
     </style>
@@ -118,7 +137,13 @@
         <input id="integerAnswer" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
         <button id="submitAnswer" type="button">Submit answer</button>
       </div>
-      <div id="submitHint">Press Enter/Return to submit and press it again to move to the next chart.</div>
+      <div id="helperArea">
+        <div id="submitHint">Press Enter/Return to submit and press it again to move to the next chart.</div>
+        <div id="reviseArea">
+          <div id="reviseHint">If you made a typo, you can revise your answer before moving on.</div>
+          <button id="reviseAnswer" type="button">Revise answer</button>
+        </div>
+      </div>
       <div id="feedback"></div>
     </div>
   </body>
@@ -145,6 +170,8 @@
       const tallBar = document.getElementById('tallBar');
       const scrollHint = document.getElementById('scrollHint');
       const submitAnswer = document.getElementById('submitAnswer');
+      const reviseAnswer = document.getElementById('reviseAnswer');
+      const reviseArea = document.getElementById('reviseArea');
       const integerAnswer = document.getElementById('integerAnswer');
       const feedback = document.getElementById('feedback');
       const mustReachTop = clampedScaleFactor > 1;
@@ -275,6 +302,10 @@
         integerAnswer.disabled = !canEdit || isSubmitted;
         submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit answer';
         submitAnswer.disabled = isSubmitted || !hasIntegerInput || !canEdit;
+        reviseArea.style.visibility = isSubmitted ? 'visible' : 'hidden';
+        submitHint.textContent = isSubmitted
+          ? 'Press Enter/Return to continue to the next chart.'
+          : 'Press Enter/Return to submit and press it again to move to the next chart.';
         if (canEdit && !wasEditable && !isSubmitted) {
           integerAnswer.focus({ preventScroll: true });
         }
@@ -282,7 +313,10 @@
       };
 
       const postAnswer = (answerValue) => {
-        feedback.textContent = `The true ratio is ${correctAnswer}.`;
+        const differsFromCorrect = answerValue !== correctAnswer;
+        feedback.textContent = differsFromCorrect
+          ? `The true ratio is ${correctAnswer}. Your response is different but it's OK.`
+          : `The true ratio is ${correctAnswer}.`;
         finalizeActiveScrollBout();
         Revisit.postAnswers({
           [taskID]: answerValue,
@@ -304,6 +338,14 @@
         updateScrollState();
       };
 
+      reviseAnswer.onclick = () => {
+        isSubmitted = false;
+        feedback.textContent = '';
+        updateScrollState();
+        integerAnswer.focus({ preventScroll: true });
+        integerAnswer.select();
+      };
+
       const goToNextChart = () => {
         Revisit.requestNext();
       };
@@ -313,6 +355,7 @@
           return;
         }
         event.preventDefault();
+        event.stopPropagation();
         if (isSubmitted) {
           goToNextChart();
           return;
@@ -324,6 +367,9 @@
 
       const handleDocumentKeyDown = (event) => {
         if (event.key === 'Enter') {
+          if (event.target === integerAnswer) {
+            return;
+          }
           if (isSubmitted) {
             event.preventDefault();
             goToNextChart();
