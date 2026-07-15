@@ -11,7 +11,7 @@
 <li style="margin-bottom: 6px;">If a bar is too tall for the screen, scroll up to see it. You can scroll only upward but back down is not possible. Sometimes you may need to scroll for a long time; that is normal.</li>
 <li style="margin-bottom: 6px;"><span style="color:red"><strong>Do not count the number of scrolls</strong></span> you make to estimate the ratio. Also, <span style="color:red"><strong>do not use any other counting or calculation method, or external tools.</strong></span></li>
 <li style="margin-bottom: 6px;"><span style="color:red"><strong>Just give quick, intuitive responses.</strong></span> Otherwise, the task will take too long.</li>
-<li style="margin-bottom: 6px;">We are not looking for precise answers; payment is not based on accuracy. Clearly random input (e.g., the same answer every time, or values like 1 when bars differ greatly) is not eligible for payment.</li>
+<li style="margin-bottom: 6px;">We are not looking for precise answers; payment is not based on accuracy. However, clearly random input (e.g., the same answer every time, or values like 1 when bars differ greatly) is not eligible for payment.</li>
 <li style="margin-bottom: 6px;">Do not skip large parts of the chart in one step (e.g., Page Up or End).</li>
 <li style="margin-bottom: 6px;">If you make a typo in your answer, you can revise and re-submit it before moving on.</li>
 </ol>
