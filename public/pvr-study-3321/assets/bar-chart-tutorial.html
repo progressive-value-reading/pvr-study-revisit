@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Two-Bar Chart Stimulus</title>
+    <script src="../../revisitUtilities/revisit-communicate.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      input,
+      button,
+      label,
+      div,
+      span {
+        font-family: inherit;
+      }
+
+      #viewport {
+        width: 500px;
+        height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 1px solid #cccccc;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      #viewport:focus {
+        outline: none;
+      }
+
+      #viewport::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      #viewport {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      #chartArea {
+        width: 500px;
+        position: relative;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        background-repeat: repeat;
+        background-position: left top;
+      }
+
+      .bar {
+        position: absolute;
+        bottom: 5px;
+        width: 50px;
+      }
+
+      #shortBar {
+        left: 200px;
+        background: #ffffff;
+        border: 1px solid #000000;
+      }
+
+      #tallBar {
+        left: 260px;
+        background: #ffffff;
+        border: 1px solid #000000;
+      }
+
+      #scrollHint {
+        position: absolute;
+        left: 320px;
+        bottom: 15px;
+        font-size: 16px;
+        color: #202020;
+        padding: 4px 6px;
+      }
+
+      #answerArea {
+        width: fit-content;
+        max-width: 100%;
+        margin: 8px auto 0;
+      }
+
+      #controls {
+        margin: 0;
+      }
+
+      #submitHint {
+        margin: 0;
+      }
+
+      #submitAnswer {
+        margin-left: 6px;
+      }
+
+      #helperArea {
+        margin-top: 8px;
+        min-height: 3em;
+      }
+
+      #reviseArea {
+        margin: 0 0 6px;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      #reviseHint {
+        margin: 0;
+      }
+
+      #reviseAnswer {
+        margin: 0;
+        flex-shrink: 0;
+      }
+      
+      #feedback {
+        display: none;
+        margin: 6px 0 0;
+        color: #b41818;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="chartArea">
+        <div id="shortBar" class="bar" aria-label="Shorter bar"></div>
+        <div id="tallBar" class="bar" aria-label="Taller bar"></div>
+        <div id="scrollHint">Please scroll to top</div>
+      </div>
+    </div>
+    <div id="answerArea">
+      <div id="controls">
+        <label for="integerAnswer">Type your estimate (a whole number):</label>
+        <input id="integerAnswer" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
+        <button id="submitAnswer" type="button">Submit</button>
+      </div>
+      <div id="feedback"></div>
+      <div id="helperArea">
+        <div id="reviseArea">
+          <div id="reviseHint">If you made a typo, click the button to correct it before moving on.</div>
+          <button id="reviseAnswer" type="button">Revise</button>
+        </div>
+        <div id="submitHint">Press Enter/Return to submit your answer.</div>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    Revisit.onDataReceive((data) => {
+      const taskID = 'barChart';
+      const viewportHeight = 500;
+      const viewportWidth = 500;
+      const topMargin = 10;
+      const SHORT_BAR_HEIGHT = 23;
+      const tallToShortRatio = Number(data.ratio);
+
+      const clampedRatio = Number.isFinite(tallToShortRatio) && tallToShortRatio > 0 ? tallToShortRatio : 2;
+
+      const shortBarHeight = SHORT_BAR_HEIGHT;
+      const tallBarHeight = shortBarHeight * clampedRatio;
+      const chartHeight = Math.max(viewportHeight, tallBarHeight + topMargin);
+
+      const viewport = document.getElementById('viewport');
+      const chartArea = document.getElementById('chartArea');
+      const shortBar = document.getElementById('shortBar');
+      const tallBar = document.getElementById('tallBar');
+      const scrollHint = document.getElementById('scrollHint');
+      const submitAnswer = document.getElementById('submitAnswer');
+      const reviseAnswer = document.getElementById('reviseAnswer');
+      const reviseArea = document.getElementById('reviseArea');
+      const integerAnswer = document.getElementById('integerAnswer');
+      const feedback = document.getElementById('feedback');
+      const mustReachTop = chartHeight > viewportHeight;
+      const correctAnswer = Math.round(clampedRatio);
+      let hasReachedTop = !mustReachTop;
+      let isSubmitted = false;
+      let wasEditable = false;
+      let canAnswer = false;
+
+      chartArea.style.width = `${viewportWidth}px`;
+      chartArea.style.height = `${chartHeight}px`;
+      shortBar.style.height = `${shortBarHeight}px`;
+      tallBar.style.height = `${tallBarHeight}px`;
+      chartArea.style.backgroundImage = `url("background-r${clampedRatio}.png")`;
+      chartArea.style.backgroundRepeat = 'no-repeat';
+      chartArea.style.backgroundSize = `${viewportWidth}px ${chartHeight}px`;
+
+      const trialStartTime = Date.now();
+      const scrollBoutIdleMs = 250;
+      const scrollMetrics = {
+        firstScrollTime: null,
+        lastScrollTime: null,
+        reachedTopAt: null,
+        totalScrollDistance: 0,
+        numDirectionChanges: 0,
+        scrollEventCount: 0,
+        scrollEvents: [],
+        scrollBouts: [],
+      };
+      let lastScrollTop = null;
+      let lastDirection = null;
+      let activeScrollBout = null;
+
+      const isAtTop = () => viewport.scrollTop <= 1;
+
+      const finalizeActiveScrollBout = () => {
+        if (!activeScrollBout) {
+          return;
+        }
+
+        scrollMetrics.scrollBouts.push({
+          startTime: activeScrollBout.startTime,
+          endTime: activeScrollBout.lastEventTime,
+          duration: activeScrollBout.lastEventTime - activeScrollBout.startTime,
+          direction: activeScrollBout.direction,
+          eventCount: activeScrollBout.eventCount,
+          totalDistance: activeScrollBout.totalDistance,
+          startScrollTop: activeScrollBout.startScrollTop,
+          endScrollTop: activeScrollBout.endScrollTop,
+        });
+        activeScrollBout = null;
+      };
+
+      const trackScroll = () => {
+        const currentScrollTop = viewport.scrollTop;
+        if (lastScrollTop === null) {
+          lastScrollTop = currentScrollTop;
+          return;
+        }
+        const delta = currentScrollTop - lastScrollTop;
+        if (delta === 0) return;
+
+        const elapsed = Date.now() - trialStartTime;
+        const direction = delta > 0 ? 'down' : 'up';
+        const distance = Math.abs(delta);
+        scrollMetrics.scrollEventCount += 1;
+        scrollMetrics.totalScrollDistance += distance;
+        if (scrollMetrics.firstScrollTime === null) {
+          scrollMetrics.firstScrollTime = elapsed;
+        }
+        scrollMetrics.lastScrollTime = elapsed;
+
+        scrollMetrics.scrollEvents.push({
+          time: elapsed,
+          direction,
+          delta,
+          distance,
+          previousScrollTop: lastScrollTop,
+          scrollTop: currentScrollTop,
+        });
+
+        const shouldStartNewBout = !activeScrollBout
+          || activeScrollBout.direction !== direction
+          || elapsed - activeScrollBout.lastEventTime > scrollBoutIdleMs;
+
+        if (shouldStartNewBout) {
+          finalizeActiveScrollBout();
+          activeScrollBout = {
+            startTime: elapsed,
+            lastEventTime: elapsed,
+            direction,
+            eventCount: 1,
+            totalDistance: distance,
+            startScrollTop: lastScrollTop,
+            endScrollTop: currentScrollTop,
+          };
+        } else {
+          activeScrollBout.lastEventTime = elapsed;
+          activeScrollBout.eventCount += 1;
+          activeScrollBout.totalDistance += distance;
+          activeScrollBout.endScrollTop = currentScrollTop;
+        }
+
+        if (lastDirection !== null && lastDirection !== direction) {
+          scrollMetrics.numDirectionChanges += 1;
+        }
+        lastDirection = direction;
+
+        if (scrollMetrics.reachedTopAt === null && isAtTop()) {
+          scrollMetrics.reachedTopAt = elapsed;
+        }
+
+        lastScrollTop = currentScrollTop;
+      };
+
+      const updateScrollState = () => {
+        if (!hasReachedTop && isAtTop()) {
+          hasReachedTop = true;
+        }
+
+        const canEdit = hasReachedTop;
+        canAnswer = canEdit;
+        const rawInput = integerAnswer.value.trim();
+        const parsed = Number(rawInput);
+        const hasIntegerInput = rawInput !== '' && Number.isInteger(parsed);
+        scrollHint.style.display = mustReachTop && !hasReachedTop ? 'block' : 'none';
+        integerAnswer.disabled = !canEdit || isSubmitted;
+        submitAnswer.textContent = isSubmitted ? 'Submitted' : 'Submit';
+        submitAnswer.disabled = isSubmitted || !hasIntegerInput || !canEdit;
+        reviseArea.style.display = isSubmitted ? 'flex' : 'none';
+        submitHint.textContent = isSubmitted
+          ? 'Otherwise, press Enter/Return to continue to the next chart.'
+          : 'Press Enter/Return to submit your answer.';
+        if (canEdit && !wasEditable && !isSubmitted) {
+          integerAnswer.focus({ preventScroll: true });
+        }
+        wasEditable = canEdit;
+      };
+
+      const postAnswer = (answerValue) => {
+        const differsFromCorrect = answerValue !== correctAnswer;
+        feedback.textContent = differsFromCorrect
+          ? `The true ratio is ${correctAnswer}. Your response is different but it's OK.`
+          : `The true ratio is ${correctAnswer}.`;
+        feedback.style.display = 'block';
+        finalizeActiveScrollBout();
+        Revisit.postAnswers({
+          [taskID]: answerValue,
+          scrollMetrics,
+        });
+      };
+
+      submitAnswer.onclick = () => {
+        const rawInput = integerAnswer.value.trim();
+        const parsed = Number(rawInput);
+        if (rawInput === '' || !Number.isInteger(parsed)) {
+          return;
+        }
+        if (mustReachTop && !hasReachedTop) {
+          return;
+        }
+        isSubmitted = true;
+        postAnswer(parsed);
+        updateScrollState();
+      };
+
+      reviseAnswer.onclick = () => {
+        isSubmitted = false;
+        feedback.textContent = '';
+        feedback.style.display = 'none';
+        updateScrollState();
+        integerAnswer.focus({ preventScroll: true });
+        integerAnswer.select();
+      };
+
+      const goToNextChart = () => {
+        Revisit.requestNext();
+      };
+
+      integerAnswer.onkeydown = (event) => {
+        if (event.key !== 'Enter') {
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        if (isSubmitted) {
+          goToNextChart();
+          return;
+        }
+        if (!submitAnswer.disabled) {
+          submitAnswer.click();
+        }
+      };
+
+      const handleDocumentKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          if (event.target === integerAnswer) {
+            return;
+          }
+          if (isSubmitted) {
+            event.preventDefault();
+            goToNextChart();
+            return;
+          }
+          if (document.activeElement === integerAnswer) {
+            return;
+          }
+          if (canAnswer && !submitAnswer.disabled) {
+            event.preventDefault();
+            submitAnswer.click();
+          }
+          return;
+        }
+
+        if (isSubmitted || !canAnswer || event.ctrlKey || event.metaKey || event.altKey) {
+          return;
+        }
+        if (document.activeElement === integerAnswer) {
+          return;
+        }
+        if (/^[0-9]$/.test(event.key)) {
+          event.preventDefault();
+          integerAnswer.focus({ preventScroll: true });
+          integerAnswer.value = `${integerAnswer.value}${event.key}`;
+          updateScrollState();
+        }
+      };
+
+      document.addEventListener('keydown', handleDocumentKeyDown);
+      const blockKeyboardScrollKeys = (event) => {
+        if (event.key === 'PageUp' || event.key === 'PageDown' || event.key === 'Home' || event.key === 'End') {
+          event.preventDefault();
+          return;
+        }
+        if ((event.key === ' ' || event.key === 'Spacebar') && event.target?.tagName !== 'BUTTON') {
+          event.preventDefault();
+        }
+      };
+      document.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      viewport.addEventListener('keydown', blockKeyboardScrollKeys, true);
+      const blockMiddleMouseScroll = (event) => {
+        if (event.button === 1) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      };
+      viewport.addEventListener('mousedown', blockMiddleMouseScroll, true);
+      viewport.addEventListener('auxclick', blockMiddleMouseScroll, true);
+      viewport.addEventListener('pointerdown', blockMiddleMouseScroll, true);
+      integerAnswer.addEventListener('wheel', () => {
+        integerAnswer.blur();
+      });
+
+      integerAnswer.oninput = updateScrollState;
+      viewport.tabIndex = -1;
+      viewport.scrollTop = Math.max(0, chartHeight - viewportHeight);
+      lastScrollTop = viewport.scrollTop;
+      viewport.focus({ preventScroll: true });
+      viewport.onscroll = () => {
+        trackScroll();
+        updateScrollState();
+      };
+      updateScrollState();
+    });
+  </script>
+</html>

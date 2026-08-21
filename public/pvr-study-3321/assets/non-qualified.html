@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study complete</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Sorry, based on your responses, you do not meet the eligibility criteria for this study.</h1>
+    <p><strong>You will receive compensation for the time you spent on the pre-screening process.</strong></p>
+    <p>You will be redirected to Prolific in 5 seconds to confirm your submission.</p>
+  </main>
+  <script>
+    const prolificUrl = 'https://app.prolific.com/submissions/complete?cc=CJ7FOFE5';
+
+    setTimeout(() => {
+      window.top.location.replace(prolificUrl);
+    }, 5000);
+  </script>
+</body>
+</html>
