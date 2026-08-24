@@ -301,7 +301,7 @@
                 }
             ]
         },
-        "tutorial-small-1-s1-r2": {
+        "tutorial-small-1-r2": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (small-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -309,7 +309,7 @@
                 "ratio": 2
             }
         },
-        "tutorial-small-2-s1-r13": {
+        "tutorial-small-2-r13": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (small-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -317,23 +317,15 @@
                 "ratio": 13
             }
         },
-        "tutorial-small-3-s1-r90": {
+        "tutorial-small-3-r95": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (small-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 90
+                "ratio": 95
             }
         },
-        "tutorial-small-4-s1-r100": {
-            "baseComponent": "bar-chart-tutorial",
-            "description": "Tutorial trial (small-ratio group)",
-            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
-            "parameters": {
-                "ratio": 100
-            }
-        },
-        "tutorial-large-1-s1-r2": {
+        "tutorial-large-1-r2": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (large-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -341,7 +333,7 @@
                 "ratio": 2
             }
         },
-        "tutorial-large-2-s1-r13": {
+        "tutorial-large-2-r13": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (large-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
@@ -349,20 +341,20 @@
                 "ratio": 13
             }
         },
-        "tutorial-large-3-s1-r90": {
+        "tutorial-large-3-r95": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (large-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 90
+                "ratio": 95
             }
         },
-        "tutorial-large-4-s1-r4000": {
+        "tutorial-large-4-r5000": {
             "baseComponent": "bar-chart-tutorial",
             "description": "Tutorial trial (large-ratio group)",
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
-                "ratio": 4000
+                "ratio": 5000
             }
         },
         "main-r3": {
@@ -435,6 +427,14 @@
             "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
             "parameters": {
                 "ratio": 1800
+            }
+        },
+        "main-r4000": {
+            "baseComponent": "bar-chart",
+            "description": "Main study trial",
+            "instruction": "Estimate how many times taller the taller bar is compared to the shorter bar. <span style=\"color:red\"><strong>Just give quick, intuitive responses. Do not count or calculate.</strong></span>",
+            "parameters": {
+                "ratio": 4000
             }
         },
         "main-r6000": {
@@ -518,22 +518,21 @@
                         "id": "tutorial-small",
                         "order": "fixed",
                         "components": [
-                            "tutorial-small-1-s1-r2",
-                            "tutorial-small-2-s1-r13",
+                            "tutorial-small-1-r2",
+                            "tutorial-small-2-r13",
                             "transition-scroll",
-                            "tutorial-small-3-s1-r90",
-                            "tutorial-small-4-s1-r100"
+                            "tutorial-small-3-r95"
                         ]
                     },
                     {
                         "id": "tutorial-large",
                         "order": "fixed",
                         "components": [
-                            "tutorial-large-1-s1-r2",
-                            "tutorial-large-2-s1-r13",
+                            "tutorial-large-1-r2",
+                            "tutorial-large-2-r13",
                             "transition-scroll",
-                            "tutorial-large-3-s1-r90",
-                            "tutorial-large-4-s1-r4000"
+                            "tutorial-large-3-r95",
+                            "tutorial-large-4-r5000"
                         ]
                     }
                 ]
@@ -551,6 +550,7 @@
                     "main-r370",
                     "main-r810",
                     "main-r1800",
+                    "main-r4000",
                     "main-r6000"
                 ]
             },
